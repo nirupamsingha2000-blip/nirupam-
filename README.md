@@ -22,6 +22,9 @@ Deployment
 --
 This repository now includes a GitHub Actions workflow that deploys the repository root to GitHub Pages on push to `main`.
 
-Notes
+ The contact form posts to Formspree; replace `your-form-id` in `index.html` with your real Formspree ID or another endpoint. If not replaced, the form will use a mailto fallback that opens the user's email client.
+
+Accessibility & icons
 --
-- The contact form posts to Formspree; replace `your-form-id` in `index.html` with your real Formspree ID or another endpoint.
+- Added inline SVG icons for LinkedIn and GitHub with accessible labels and keyboard focus styles.
+- Added semantic roles, aria-labels, and a screen-reader-only helper class to improve accessibility.

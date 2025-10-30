@@ -27,6 +27,18 @@ body {
   padding: 24px;
 }
 
+/* Hero */
+.hero { background: linear-gradient(135deg, rgba(123,47,247,0.12), rgba(241,7,163,0.08)); padding: 36px 0; border-radius: 12px; }
+.hero-inner { text-align: center; padding: 24px; }
+.hero h1 { color: #1a202c; margin: 0 0 8px; }
+
+/* Icon links */
+.icon-link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 8px; background: #fff; margin-right: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.icon-link svg { display: block; }
+.icon-link:focus { outline: 3px solid #7b2ff7; }
+
+.sr-only { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
 /* Header */
 header {
   background: #6200ea;
