@@ -108,6 +108,12 @@ section {
 .product-card p { color: #555; }
 .product-card .btn { margin-top: 12px; }
 
+.badge { display:inline-block; background:#ffeb3b; color:#111; padding:6px 10px; border-radius:12px; font-weight:700; font-size:12px; position:absolute; margin:8px; }
+.product-card { position:relative; }
+
+/* product detail pages */
+main.container a { display:inline-block; margin-bottom:12px; color:#0369a1; }
+
 .product-image { width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; }
 
 /* Safari/older browsers fallback for svg favicon */
