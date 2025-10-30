@@ -19,6 +19,14 @@ body {
   transition: background 0.5s ease;
 }
 
+/* Layout helpers */
+.container {
+  width: 92%;
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 24px;
+}
+
 /* Header */
 header {
   background: #6200ea;
@@ -32,6 +40,8 @@ header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
+
+.tagline { font-size: 1rem; opacity: 0.9; margin-bottom: 0.5rem; }
 
 header p {
   font-size: 1.2rem;
@@ -55,6 +65,14 @@ nav a:hover {
   color: #ffeb3b;
 }
 
+/* Navigation layout */
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
 /* Section Styles */
 section {
   padding: 60px 20px;
@@ -67,6 +85,9 @@ section {
   transform: translateY(30px);
   transition: all 0.8s ease-out;
 }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.card { padding: 18px; border-radius: 12px; background: linear-gradient(180deg,#fff,#fafafa); }
 
 section.visible {
   opacity: 1;
@@ -174,6 +195,13 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  header h1 { font-size: 1.8rem; }
+  section { padding: 28px 12px; }
+  .intro-card { padding: 28px; width: 92%; }
 }
 
 /* Apply animation to the intro card and features (single definition) */
