@@ -28,3 +28,13 @@ Accessibility & icons
 --
 - Added inline SVG icons for LinkedIn and GitHub with accessible labels and keyboard focus styles.
 - Added semantic roles, aria-labels, and a screen-reader-only helper class to improve accessibility.
+
+Serverless function (optional)
+--
+- A sample Netlify function is included at `netlify/functions/contact.js`. It logs POSTed contact data and returns a JSON success response. To use it:
+	1. Deploy the site on Netlify and enable Functions.
+	2. Move or adapt the handler to accept Form POSTs and integrate with an email provider.
+
+Analytics
+--
+- To add analytics, replace the analytics placeholder in `index.html` with Plausible, Google Analytics, or your preferred provider's snippet. Keep privacy laws in mind (GDPR).

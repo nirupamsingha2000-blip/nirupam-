@@ -234,3 +234,10 @@ footer {
 }
 
 footer p { margin: 0; }
+
+.footer-inner { display:flex; gap:12px; align-items:center; justify-content:space-between; }
+.footer-icons { display:flex; gap:8px; }
+
+/* small button tweak */
+.btn { background:#7b2ff7; border-radius:8px; padding:10px 14px; color:#fff; border:none; cursor:pointer; }
+.btn:hover { opacity:0.95; }
