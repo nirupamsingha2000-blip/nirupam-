@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Nirupam — Demo Project</title>
     <meta name="description" content="Nirupam Singha — AI, Education & Design" />
-    <link rel="stylesheet" href="style/main.css" />
+      <link rel="stylesheet" href="style/main.css" />
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <header class="container">
@@ -53,6 +57,23 @@
           <a href="https://www.linkedin.com/in/nirupam-singha-4a00542b6" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/nirupamsingha2000-blip" target="_blank" rel="noreferrer">GitHub</a>
         </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>If you'd like to get in touch, send a message below or email <a href="mailto:nirupam@example.com">nirupam@example.com</a>.</p>
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+
+          <button class="btn" type="submit">Send</button>
+        </form>
       </section>
     </main>
 

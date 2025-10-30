@@ -12,7 +12,7 @@ html {
 
 /* Body */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
   background: linear-gradient(120deg, #e0f7fa, #f3e5f5);
   color: #333;
   line-height: 1.6;
@@ -88,6 +88,13 @@ section {
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
 .card { padding: 18px; border-radius: 12px; background: linear-gradient(180deg,#fff,#fafafa); }
+
+/* Contact form styles */
+.contact-form { display: grid; gap: 10px; max-width: 600px; }
+.contact-form label { font-weight: 600; }
+.contact-form input,
+.contact-form textarea { padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 1rem; }
+.contact-form .btn { width: fit-content; margin-top: 6px; }
 
 section.visible {
   opacity: 1;

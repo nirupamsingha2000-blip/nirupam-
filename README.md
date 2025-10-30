@@ -17,3 +17,11 @@ What I changed
 - Fixed syntax errors in `style/main.css` and added small layout + responsive improvements.
 
 If you'd like additional styling, fonts, or deployment to GitHub Pages, tell me which you'd prefer and I'll set it up.
+
+Deployment
+--
+This repository now includes a GitHub Actions workflow that deploys the repository root to GitHub Pages on push to `main`.
+
+Notes
+--
+- The contact form posts to Formspree; replace `your-form-id` in `index.html` with your real Formspree ID or another endpoint.
