@@ -101,6 +101,13 @@ section {
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
 .card { padding: 18px; border-radius: 12px; background: linear-gradient(180deg,#fff,#fafafa); }
 
+/* Products */
+.products-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 12px; }
+.product-card { background: #fff; padding: 16px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.product-card h3 { margin-top: 0; }
+.product-card p { color: #555; }
+.product-card .btn { margin-top: 12px; }
+
 /* Contact form styles */
 .contact-form { display: grid; gap: 10px; max-width: 600px; }
 .contact-form label { font-weight: 600; }
