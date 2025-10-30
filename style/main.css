@@ -108,6 +108,11 @@ section {
 .product-card p { color: #555; }
 .product-card .btn { margin-top: 12px; }
 
+.product-image { width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; }
+
+/* Safari/older browsers fallback for svg favicon */
+/* favicon handled via link element in head; no CSS required */
+
 /* Contact form styles */
 .contact-form { display: grid; gap: 10px; max-width: 600px; }
 .contact-form label { font-weight: 600; }
