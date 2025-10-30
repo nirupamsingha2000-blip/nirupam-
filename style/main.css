@@ -1,0 +1,189 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scroll on root */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #e0f7fa, #f3e5f5);
+  color: #333;
+  line-height: 1.6;
+  transition: background 0.5s ease;
+}
+
+/* Header */
+header {
+  background: #6200ea;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Navigation */
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffeb3b;
+}
+
+/* Section Styles */
+section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  color: #6200ea;
+  margin-bottom: 20px;
+}
+
+/* Footer (consolidated) */
+footer {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Project Intro Section */
+.project-intro {
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.intro-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 50px;
+  text-align: center;
+  width: 80%;
+  max-width: 700px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.intro-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.intro-card p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px;
+  width: 150px;
+  transition: 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.feature h3 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+}
+
+.feature p {
+  font-size: 0.9rem;
+  color: #eee;
+}
+/* Animation Effects */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to the intro card and features (single definition) */
+.intro-card {
+  animation: fadeUp 1s ease-in-out;
+}
+.feature {
+  animation: fadeUp 1s ease-in-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+footer p { margin: 0; }
