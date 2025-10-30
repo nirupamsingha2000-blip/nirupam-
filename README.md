@@ -35,6 +35,17 @@ Serverless function (optional)
 	1. Deploy the site on Netlify and enable Functions.
 	2. Move or adapt the handler to accept Form POSTs and integrate with an email provider.
 
+SendGrid example
+--
+- The sample function includes a SendGrid example. To enable it:
+	1. Create a SendGrid API key and add it to your Netlify site settings as `SENDGRID_API_KEY`.
+	2. Set `CONTACT_RECEIVER` and `SENDGRID_FROM` environment variables in Netlify to control the recipient and sender.
+
+Netlify automated deploy via GitHub Actions
+--
+- A workflow `deploy-netlify.yml` is included that uses the Netlify CLI to deploy the repo root when pushing to `main`.
+- You must add two repository secrets in GitHub: `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID`. See Netlify docs for creating a personal access token and retrieving your site ID.
+
 Analytics
 --
 - To add analytics, replace the analytics placeholder in `index.html` with Plausible, Google Analytics, or your preferred provider's snippet. Keep privacy laws in mind (GDPR).
