@@ -1,2 +1,0 @@
-# nirupam-
-blog
