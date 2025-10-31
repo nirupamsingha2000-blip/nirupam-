@@ -6,38 +6,12 @@
     <title>nirupam's world</title>
     <meta name="description" content="Nirupam Singha — AI, Education & Design" />
     <link rel="stylesheet" href="style/main.css" />
-  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-        const statusEl = document.querySelector('.form-status');
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const name = form.name.value.trim();
-          const email = form.email.value.trim();
-          const message = form.message.value.trim();
-
-          if (formId && formId !== 'your-form-id') {
-            // Submit to Formspree using fetch
-            const endpoint = form.action;
-            fetch(endpoint, {
-              method: 'POST',
-              headers: { 'Accept': 'application/json' },
-              body: new FormData(form)
-            }).then(res => res.json()).then(data => {
-              if (data.ok === false) {
-                statusEl.textContent = 'Submission failed. Please try emailing directly.';
-              } else {
-                statusEl.textContent = 'Thanks — your message was sent.';
-                form.reset();
-              }
-            }).catch(() => {
-              statusEl.textContent = 'Network error. Please try again later.';
-            });
-          } else {
-            // mailto fallback
-            const subject = encodeURIComponent('Contact from website');
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-            window.location.href = `mailto:nirupam@example.com?subject=${subject}&body=${body}`;
-          }
-        });
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <div class="hero-inner">
           <h1>nirupam's world</h1>
           <p class="tagline">AI • Education • Design • Creativity</p>
           <nav class="site-nav" role="navigation" aria-label="Main navigation">
