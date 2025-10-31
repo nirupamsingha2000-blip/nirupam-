@@ -273,6 +273,13 @@ footer {
   color: #5b21b6; /* purple heading */
 }
 
+/* Slightly larger, more prominent heading */
+.intro-card h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 .intro-card p {
   margin: 0 0 10px;
   color: #374151;
@@ -296,6 +303,17 @@ footer {
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 20px rgba(2,6,23,0.06);
+}
+
+/* Staggered entrance animations for card and features */
+.intro-card { opacity: 0; transform-origin: center; transform: translateY(6px) scale(0.998); animation: popIn 700ms cubic-bezier(.2,.9,.2,1) 120ms both; }
+.feature { opacity: 0; transform: translateY(10px); animation: popIn 600ms cubic-bezier(.2,.9,.2,1) both; }
+.features .feature:nth-child(1) { animation-delay: 200ms; }
+.features .feature:nth-child(2) { animation-delay: 320ms; }
+.features .feature:nth-child(3) { animation-delay: 440ms; }
+
+@keyframes popIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .feature:hover {
