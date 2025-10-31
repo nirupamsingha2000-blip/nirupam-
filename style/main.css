@@ -39,6 +39,8 @@ body {
 
 /* Hero */
 .hero { background: linear-gradient(135deg, rgba(123,47,247,0.12), rgba(241,7,163,0.08)); padding: 36px 0; border-radius: 12px; }
+/* Ensure hero can hold absolute decorative floats */
+.hero { position: relative; overflow: hidden; }
 .hero-inner { text-align: center; padding: 24px; }
 .hero h1 { color: #1a202c; margin: 0 0 8px; }
 
@@ -268,6 +270,34 @@ footer {
 }
 
 .hero .intro-card { position: relative; z-index: 2; }
+
+/* Floating decorative elements */
+.float { position: absolute; pointer-events: none; z-index: 1; opacity: 0.92; }
+.float svg { display: block; }
+.float-1 { left: 8%; top: 12%; transform: translate3d(0,0,0); animation: floatA 9s ease-in-out infinite; }
+.float-2 { right: 10%; top: 8%; transform: translate3d(0,0,0); animation: floatB 12s ease-in-out infinite; }
+.float-3 { left: 50%; bottom: 6%; transform: translateX(-50%); animation: floatC 10s ease-in-out infinite; }
+
+@keyframes floatA {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(6deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+@keyframes floatB {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(-26px) translateX(8px) rotate(-4deg); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
+@keyframes floatC {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-14px) scale(1.03); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .float, .intro-card, .feature { animation: none !important; transition: none !important; }
+}
 
 .intro-card h1 {
   font-size: 2rem;
