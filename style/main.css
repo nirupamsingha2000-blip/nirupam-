@@ -137,6 +137,12 @@ section {
 
 .subject-list { font-size: 0.9rem; color: #4b5563; margin: 8px 0; font-weight:600 }
 
+/* Inline class list (pills) under Products */
+.class-list { list-style: none; display: flex; gap: 10px; padding: 0; margin: 10px 0 14px; justify-content: center; }
+.class-list li { background: rgba(123,47,247,0.08); padding: 6px 12px; border-radius: 999px; }
+.class-list a { color: var(--purple-600); text-decoration: none; font-weight: 700; }
+.class-list a:hover { text-decoration: underline; }
+
 /* Badges (product highlight) */
 .badge {
   display: inline-block;
