@@ -133,6 +133,8 @@ section {
 .product-card p { color: #555; }
 .product-card .btn { margin-top: 12px; }
 
+.subject-list { font-size: 0.9rem; color: #4b5563; margin: 8px 0; font-weight:600 }
+
 /* Badges (product highlight) */
 .badge {
   display: inline-block;
