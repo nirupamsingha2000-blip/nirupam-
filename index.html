@@ -92,11 +92,13 @@
       <section id="products">
         <h2>Products</h2>
         <ul class="class-list" aria-label="Available classes">
-          <li><a href="products/class-12.html">Class 12</a></li>
-          <li><a href="products/class-11.html">Class 11</a></li>
+          <li class="active"><a href="#" data-filter="all">All</a></li>
+          <li><a href="#" data-filter="class-12">Class 12</a></li>
+          <li><a href="#" data-filter="class-11">Class 11</a></li>
+          <li><a href="#" data-filter="class-10">Class 10</a></li>
         </ul>
         <div class="products-list">
-          <article class="product-card">
+          <article class="product-card" data-class="class-12">
             <span class="badge">Popular</span>
             <img src="assets/images/class12.svg" alt="Class 12" class="product-image" />
             <h3>Class 12</h3>
@@ -105,7 +107,7 @@
             <a class="btn" href="products/class-12.html">Learn more</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-class="class-11">
             <span class="badge">New</span>
             <img src="assets/images/class11.svg" alt="Class 11" class="product-image" />
             <h3>Class 11</h3>
@@ -114,7 +116,7 @@
             <a class="btn" href="products/class-11.html">Learn more</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-class="class-10">
             <span class="badge">Free</span>
             <img src="assets/images/class10.svg" alt="Class 10" class="product-image" />
             <h3>Class 10</h3>
@@ -197,6 +199,35 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Class filter pills - filter product cards by data-class
+      (function(){
+        const pills = document.querySelectorAll('.class-list a[data-filter]');
+        const cards = document.querySelectorAll('.product-card');
+        function setActive(targetLink){
+          document.querySelectorAll('.class-list li').forEach(li => li.classList.remove('active'));
+          targetLink.closest('li').classList.add('active');
+        }
+        function filterClass(filter){
+          if(filter === 'all'){
+            cards.forEach(c => c.style.display='');
+            return;
+          }
+          cards.forEach(c => {
+            if(c.getAttribute('data-class') === filter) c.style.display=''; else c.style.display='none';
+          });
+        }
+        pills.forEach(p => {
+          p.addEventListener('click', function(e){
+            e.preventDefault();
+            const f = this.getAttribute('data-filter');
+            setActive(this);
+            filterClass(f);
+          });
+        });
+      })();
+    </script>
 
     <!-- Analytics placeholder: replace with Plausible or GA snippet -->
     <script>

@@ -143,6 +143,10 @@ section {
 .class-list a { color: var(--purple-600); text-decoration: none; font-weight: 700; }
 .class-list a:hover { text-decoration: underline; }
 
+/* Active pill */
+.class-list li.active { background: var(--accent); }
+.class-list li.active a { color: white; }
+
 /* Badges (product highlight) */
 .badge {
   display: inline-block;
