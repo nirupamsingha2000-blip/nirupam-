@@ -114,6 +114,19 @@ section {
 /* product detail pages */
 main.container a { display:inline-block; margin-bottom:12px; color:#0369a1; }
 
+/* Product detail layout */
+.product-hero { display:flex; gap:24px; align-items:center; margin:24px 0; }
+.product-hero img { width:280px; max-width:40%; border-radius:12px; }
+.product-hero .product-info { flex:1; }
+.product-hero h1 { margin:0 0 8px; }
+.enroll { display:inline-block; margin-top:12px; background:#059669; padding:10px 14px; color:#fff; border-radius:8px; text-decoration:none; }
+
+@media (max-width:700px) {
+  .product-hero { flex-direction:column; }
+  .product-hero img { max-width:100%; width:100%; }
+  .badge { position:static; margin-bottom:8px; }
+}
+
 .product-image { width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; }
 
 /* Safari/older browsers fallback for svg favicon */
