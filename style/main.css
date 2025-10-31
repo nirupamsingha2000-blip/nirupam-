@@ -229,12 +229,13 @@ footer {
 /* Project Intro Section */
 /* Project Intro (hero card) */
 .project-intro {
-  background: linear-gradient(135deg, #7b2ff7, #f107a3);
-  height: 100vh;
+  background: linear-gradient(135deg, var(--bg-grad-start), var(--bg-grad-end));
+  min-height: 86vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
 .intro-card {
@@ -248,6 +249,23 @@ footer {
   box-shadow: 0 18px 40px rgba(13, 17, 26, 0.18);
   border: 1px solid rgba(16,24,40,0.04);
 }
+
+/* subtle radial accent behind card */
+.project-intro::before {
+  content: '';
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at center, rgba(255,255,255,0.08), rgba(255,255,255,0) 40%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero .intro-card { position: relative; z-index: 2; }
 
 .intro-card h1 {
   font-size: 2rem;
