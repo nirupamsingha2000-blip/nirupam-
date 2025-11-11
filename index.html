@@ -1,5 +1,7 @@
+// ...existing code...
 <!doctype html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,164 +75,205 @@
                 <p>Dedicated doubt-clearing sessions and one-to-one help.</p>
               </div>
             </div>
+=======
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Project</title>
+    <style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
 
-            <a class="cta" href="#contact" aria-label="Enroll now">Enroll Now</a>
-          </div>
+  <meta name="description" content="Initial demo project index page">
+
+  <!-- Link to stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Optional: link to a small script -->
+  <script defer src="main.js"></script>
+</head>
+<button id="backToTop">↑</button>
+
+<script>
+  const topBtn = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  topBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: 'smooth'}));
+</script>
+
+<body>
+ 
+  <body>
+  <header>
+    <h1>Welcome to Nirupam’s World</h1>
+    <p>AI • Education • Design • Creativity</p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm Nirupam — an educator and creative mind exploring how AI can reshape
+        learning and design. This space blends curiosity, storytelling, and
+        innovation in education.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>AI in Education</h3>
+          <p>Exploring how machine intelligence enhances learning outcomes.</p>
+        </div>
+        <div class="card">
+          <h3>Design Thinking</h3>
+          <p>Integrating empathy and creativity in modern classroom design.</p>
+        </div>
+        <div class="card">
+          <h3>Animated Learning</h3>
+          <p>Visual storytelling for complex educational concepts.</p>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main class="container">
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I'm Nirupam — an educator exploring how AI can reshape learning and
-          design. This page is a lightweight starting point for the project.
-        </p>
-      </section>
+    <section id="connect">
+      <h2>Let's Connect</h2>
+      <p>Find me on:</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/nirupam-singha-4a00542b6" target="_blank">LinkedIn</a>
+        <a href="https://github.com/nirupamsingha2000-blip" target="_blank">GitHub</a>
+      </div>
+    </section>
+  </main>
 
-      <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>AI in Education</h3>
-            <p>Exploring machine intelligence to enhance learning outcomes.</p>
-          </article>
-          <article class="card">
-            <h3>Design Thinking</h3>
-            <p>Integrating empathy and creativity into modern learning spaces.</p>
-          </article>
-          <article class="card">
-            <h3>Animated Learning</h3>
-            <p>Visual storytelling to explain complex concepts clearly.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="products">
-        <h2>Products</h2>
-        <ul class="class-list" aria-label="Available classes">
-          <li class="active"><a href="#" data-filter="all">All</a></li>
-          <li><a href="#" data-filter="class-12">Class 12</a></li>
-          <li><a href="#" data-filter="class-11">Class 11</a></li>
-          <li><a href="#" data-filter="class-10">Class 10</a></li>
-        </ul>
-        <div class="products-list">
-          <article class="product-card" data-class="class-12">
-            <span class="badge">Popular</span>
-            <div class="product-media">
-              <img src="assets/images/class12.svg" alt="Class 12" class="product-image" />
-            </div>
-            <div class="product-body">
-              <div class="product-icon" aria-hidden="true">🔬</div>
-              <h3>Class 12</h3>
-              <p class="muted">Comprehensive course material and interactive lessons for Class 12.</p>
-              <p class="subject-list">Subjects: Physics • Chemistry • Maths</p>
-              <a class="btn" href="products/class-12.html">Learn more</a>
-            </div>
-          </article>
-
-          <article class="product-card" data-class="class-11">
-            <span class="badge">New</span>
-            <div class="product-media">
-              <img src="assets/images/class11.svg" alt="Class 11" class="product-image" />
-            </div>
-            <div class="product-body">
-              <div class="product-icon" aria-hidden="true">⚗️</div>
-              <h3>Class 11</h3>
-              <p class="muted">Structured curriculum and practice resources for Class 11 students.</p>
-              <p class="subject-list">Subjects: Physics • Chemistry • Maths</p>
-              <a class="btn" href="products/class-11.html">Learn more</a>
-            </div>
-          </article>
-
-          <article class="product-card" data-class="class-10">
-            <span class="badge">Free</span>
-            <div class="product-media">
-              <img src="assets/images/class10.svg" alt="Class 10" class="product-image" />
-            </div>
-            <div class="product-body">
-              <div class="product-icon" aria-hidden="true">📘</div>
-              <h3>Class 10</h3>
-              <p class="muted">Foundational topics and exam preparation for Class 10.</p>
-              <p class="subject-list">Subjects: Physics • Chemistry • Maths</p>
-              <a class="btn" href="products/class-10.html">Learn more</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="connect">
-        <h2>Let's Connect</h2>
-        <p>Find me on:</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/nirupam-singha-4a00542b6" target="_blank">LinkedIn</a>
-          <a href="https://github.com/nirupamsingha2000-blip" target="_blank">GitHub</a>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>If you'd like to get in touch, send a message below or email <a href="mailto:nirupam@example.com">nirupam@example.com</a>.</p>
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" data-formspree-id="your-form-id">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
-
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
-
-          <div class="form-actions">
-            <button class="btn" type="submit">Send</button>
-          </div>
-        </form>
-      </section>
-    </main>
-
-    <footer class="container">
-      <p>© 2025 Nirupam Singha • Designed with curiosity and AI</p>
-    </footer>
-
-    <!-- ===== Scripts ===== -->
-    <script>
-      const topBtn = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-      });
-      topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    </script>
-
-    <script>
-      const pills = document.querySelectorAll('.class-list a[data-filter]');
-      const cards = document.querySelectorAll('.product-card');
-      function setActive(targetLink) {
-        document.querySelectorAll('.class-list li').forEach(li => li.classList.remove('active'));
-        targetLink.closest('li').classList.add('active');
-      }
-      function filterClass(filter) {
-        cards.forEach(c => c.style.display = (filter === 'all' || c.getAttribute('data-class') === filter) ? '' : 'none');
-      }
-      pills.forEach(p => {
-        p.addEventListener('click', e => {
-          e.preventDefault();
-          const f = p.getAttribute('data-filter');
-          setActive(p);
-          filterClass(f);
-        });
-      });
-    </script>
-
-    <script>
-      const sections = document.querySelectorAll("section");
-      window.addEventListener("scroll", () => {
-        const trigger = window.innerHeight * 0.8;
-        sections.forEach(sec => {
-          const top = sec.getBoundingClientRect().top;
-          if (top < trigger) sec.classList.add("show");
-        });
-      });
-    </script>
-  </body>
+  <footer>
+    <p>© 2025 Nirupam Singha • Designed with curiosity and AI</p>
+  </footer>
+</body>
+ 
+</body>
 </html>
+// ...existing code...
+<link rel="stylesheet" href="style/main.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Education & AI</title>
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+ <section class="hero">
+  <div class="hero-content">
+    <h1>Hi, I’m Nirupam Singha</h1>
+    <p>Exploring how AI can reshape Education in India 🚀</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/nirupam-singha-4a00542b6" target="_blank">LinkedIn</a>
+      <a href="https://github.com/nirupamsingha2000-blip" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+ <section class="about">
+  <h2>About Me</h2>
+  <p>
+    I’m an educator and content creator exploring how Artificial Intelligence 
+    can make learning more personalized, inclusive, and engaging for students across India. 
+    My goal is to bridge the gap between AI technology and real classroom impact.
+  </p>
+</section>
+<section class="projects">
+  <h2>My Work</h2>
+  <div class="project-list">
+    <div class="project">
+      <h3>AI Ethics in Schools</h3>
+      <p>A research-driven initiative exploring how AI ethics can be integrated into India’s school curriculum.</p>
+    </div>
+    <div class="project">
+      <h3>Learning with GPT</h3>
+      <p>Creating AI-powered educational videos that make complex topics simple, engaging, and accessible.</p>
+    </div>
+    <div class="project">
+      <h3>Educators Connect</h3>
+      <p>A platform idea to bring teachers, creators, and technologists together to shape the future of learning.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+<footer>
+  <p>© 2025 Nirupam’s World | Learning • AI • Education • Design • Creativity</p>
+</footer>
+
+</body><section class="project-intro">
+  <div class="intro-card">
+    <h2>Welcome to My Project</h2>
+    <p>This is the initial version of my project. More coming soon 🚀</p>
+    <div class="features">
+      <div class="feature">
+        ⚡
+        <h3>Fast</h3>
+        <p>Lightning fast performance</p>
+      </div>
+      <div class="feature">
+        🎨
+        <h3>Beautiful</h3>
+        <p>Modern and clean design</p>
+      </div>
+      <div class="feature">
+        📱
+        <h3>Responsive</h3>
+        <p>Works on all devices</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</html>
+
+<section class="project-intro">
+  <div class="intro-card">
+    <h2>Welcome to My Project</h2>
+    <p>This is the initial version of my project. More coming soon 🚀</p>
+    <div class="features">
+      <div class="feature">
+        ⚡
+        <h3>Fast</h3>
+        <p>Lightning fast performance</p>
+      </div>
+      <div class="feature">
+        🎨
+        <h3>Beautiful</h3>
+        <p>Modern and clean design</p>
+      </div>
+      <div class="feature">
+        📱
+        <h3>Responsive</h3>
+        <p>Works on all devices</p>
+      </div>
+    </div>
+  </div>
+</section>
