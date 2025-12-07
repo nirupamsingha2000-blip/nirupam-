@@ -1,279 +1,293 @@
-// ...existing code...
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
-<<<<<<< HEAD
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nirupam's World</title>
-
-    <meta name="description" content="Nirupam Singha — AI, Education & Design" />
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
-
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- ===== Sticky Navbar ===== -->
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#products">Products</a>
-      <a href="#connect">Connect</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- ===== Back to Top Button ===== -->
-    <button id="backToTop">↑</button>
-
-    <header>
-      <div class="hero">
-        <div class="hero-inner">
-          <!-- floating decorative elements (purely visual) -->
-          <div class="float float-1" aria-hidden="true">
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="60" fill="url(#g1)"/></svg>
-          </div>
-          <div class="float float-2" aria-hidden="true">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="80" height="80" rx="18" fill="url(#g2)"/></svg>
-          </div>
-          <div class="float float-3" aria-hidden="true">
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 0c16.5685 0 30 13.4315 30 30S46.5685 60 30 60 0 46.5685 0 30 13.4315 0 30 0z" fill="url(#g3)"/></svg>
-          </div>
-          <div class="intro-card">
-            <h1 class="gradient-text">Nirupam's Coaching</h1>
-            <p>Physics • Chemistry • Maths — Concept clarity, exam strategies, and top results.</p>
-            <div style="font-size:28px; margin:12px 0;" aria-hidden="true">🚀</div>
-
-            <div class="features" role="list">
-              <div class="feature" role="listitem">
-                <div class="icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zm-8 18a8 8 0 0116 0H4z" fill="#f59e0b"/></svg>
-                </div>
-                <h3>Experienced Faculty</h3>
-                <p>Years of classroom experience and proven teaching methods.</p>
-              </div>
-
-              <div class="feature" role="listitem">
-                <div class="icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h18v18H3V3zm4 4h10v2H7V7z" fill="#f472b6"/></svg>
-                </div>
-                <h3>Exam-focused Practice</h3>
-                <p>Past papers, timed tests, and strategy sessions for top scores.</p>
-              </div>
-
-              <div class="feature" role="listitem">
-                <div class="icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7v3a7 7 0 007 7 7 7 0 007-7V9a7 7 0 00-7-7z" fill="#60a5fa"/></svg>
-                </div>
-                <h3>Doubt Support</h3>
-                <p>Dedicated doubt-clearing sessions and one-to-one help.</p>
-              </div>
-            </div>
-=======
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Demo Project</title>
-    <style>
-html {
-  scroll-behavior: smooth;
-}
-</style>
-
-  <meta name="description" content="Initial demo project index page">
-
-  <!-- Link to stylesheet -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Optional: link to a small script -->
-  <script defer src="main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nirupam's Coaching</title>
+  <meta name="description" content="Physics  Chemistry  Maths Coaching — Concept clarity, exam strategies, and top results." />
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
 </head>
-<button id="backToTop">↑</button>
-
-<script>
-  const topBtn = document.getElementById("backToTop");
-  window.addEventListener("scroll", () => {
-    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-  });
-  topBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: 'smooth'}));
-</script>
 
 <body>
- 
-  <body>
+  <!-- Sticky Navbar -->
+  <nav class="site-nav-top">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#products">Classes</a>
+    <a href="#connect">Connect</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top"></button>
+
+  <!-- Header / Hero -->
   <header>
-    <h1>Welcome to Nirupam’s World</h1>
-    <p>AI • Education • Design • Creativity</p>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Projects</a>
-      <a href="#">Blog</a>
-      <a href="#">Contact</a>
-    </nav>
+    <div class="hero">
+      <div class="hero-inner">
+        <!-- Floating decorative elements -->
+        <div class="float float-1" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="60" fill="rgba(123,47,247,0.15)"/></svg>
+        </div>
+        <div class="float float-2" aria-hidden="true">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="80" height="80" rx="18" fill="rgba(241,7,163,0.15)"/></svg>
+        </div>
+        <div class="float float-3" aria-hidden="true">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="rgba(123,47,247,0.1)"/></svg>
+        </div>
+
+        <!-- Intro Card -->
+        <div class="intro-card">
+          <h1 class="gradient-text">Nirupam's Coaching</h1>
+          <p>Physics  Chemistry  Maths — Concept clarity, exam strategies, and top results.</p>
+          <div style="font-size:28px; margin:12px 0;" aria-hidden="true"></div>
+
+          <!-- Features -->
+          <div class="features" role="list">
+            <div class="feature" role="listitem">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zm-8 18a8 8 0 0116 0H4z" fill="#f59e0b"/></svg>
+              </div>
+              <h3>Experienced Faculty</h3>
+              <p>Years of classroom experience and proven teaching methods.</p>
+            </div>
+
+            <div class="feature" role="listitem">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3V3zm4 4h10v2H7V7z" fill="#f472b6"/></svg>
+              </div>
+              <h3>Exam-focused Practice</h3>
+              <p>Past papers, timed tests, and strategy sessions for top scores.</p>
+            </div>
+
+            <div class="feature" role="listitem">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 00-7 7v3a7 7 0 007 7 7 7 0 007-7V9a7 7 0 00-7-7z" fill="#60a5fa"/></svg>
+              </div>
+              <h3>Doubt Support</h3>
+              <p>Dedicated doubt-clearing sessions and one-to-one help.</p>
+            </div>
+          </div>
+
+          <a class="cta" href="#contact" aria-label="Enroll now">Enroll Now</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <!-- Main Content -->
+  <main class="container">
+    <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I'm Nirupam — an educator and creative mind exploring how AI can reshape
-        learning and design. This space blends curiosity, storytelling, and
-        innovation in education.
+        I'm Nirupam — an educator exploring how to make Physics, Chemistry, and Maths engaging and crystal clear for students. 
+        This space is dedicated to helping students achieve their best exam results through concept clarity, focused practice, and personalized doubt support.
       </p>
     </section>
 
+    <!-- Featured Projects Section -->
     <section id="projects">
       <h2>Featured Projects</h2>
       <div class="cards">
-        <div class="card">
-          <h3>AI in Education</h3>
-          <p>Exploring how machine intelligence enhances learning outcomes.</p>
-        </div>
-        <div class="card">
-          <h3>Design Thinking</h3>
-          <p>Integrating empathy and creativity in modern classroom design.</p>
-        </div>
-        <div class="card">
-          <h3>Animated Learning</h3>
-          <p>Visual storytelling for complex educational concepts.</p>
-        </div>
+        <article class="card">
+          <h3>Concept Videos</h3>
+          <p>In-depth video explanations for Physics, Chemistry, and Maths topics.</p>
+        </article>
+        <article class="card">
+          <h3>Exam Practice</h3>
+          <p>Timed tests and past papers to help you master exam techniques.</p>
+        </article>
+        <article class="card">
+          <h3>Doubt Support</h3>
+          <p>Personalized one-to-one help and group doubt-clearing sessions.</p>
+        </article>
       </div>
     </section>
 
+    <!-- Products / Classes Section -->
+    <section id="products">
+      <h2>Classes</h2>
+      <ul class="class-list" aria-label="Available classes">
+        <li class="active"><a href="#" data-filter="all">All</a></li>
+        <li><a href="#" data-filter="class-12">Class 12</a></li>
+        <li><a href="#" data-filter="class-11">Class 11</a></li>
+        <li><a href="#" data-filter="class-10">Class 10</a></li>
+      </ul>
+
+      <div class="products-list">
+        <!-- Class 12 Card -->
+        <article class="product-card" data-class="class-12">
+          <span class="badge">Popular</span>
+          <div class="product-media">
+            <img src="assets/images/class12.svg" alt="Class 12" class="product-image" />
+          </div>
+          <div class="product-body">
+            <div class="product-icon" aria-hidden="true"></div>
+            <h3>Class 12</h3>
+            <p class="muted">Comprehensive course material and interactive lessons for Class 12.</p>
+            <p class="subject-list">Subjects: Physics  Chemistry  Maths</p>
+            <a class="btn" href="products/class-12.html">Learn more</a>
+          </div>
+        </article>
+
+        <!-- Class 11 Card -->
+        <article class="product-card" data-class="class-11">
+          <span class="badge">New</span>
+          <div class="product-media">
+            <img src="assets/images/class11.svg" alt="Class 11" class="product-image" />
+          </div>
+          <div class="product-body">
+            <div class="product-icon" aria-hidden="true"></div>
+            <h3>Class 11</h3>
+            <p class="muted">Structured curriculum and practice resources for Class 11 students.</p>
+            <p class="subject-list">Subjects: Physics  Chemistry  Maths</p>
+            <a class="btn" href="products/class-11.html">Learn more</a>
+          </div>
+        </article>
+
+        <!-- Class 10 Card -->
+        <article class="product-card" data-class="class-10">
+          <span class="badge">Free</span>
+          <div class="product-media">
+            <img src="assets/images/class10.svg" alt="Class 10" class="product-image" />
+          </div>
+          <div class="product-body">
+            <div class="product-icon" aria-hidden="true"></div>
+            <h3>Class 10</h3>
+            <p class="muted">Foundational topics and exam preparation for Class 10.</p>
+            <p class="subject-list">Subjects: Physics  Chemistry  Maths</p>
+            <a class="btn" href="products/class-10.html">Learn more</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Connect Section -->
     <section id="connect">
       <h2>Let's Connect</h2>
       <p>Find me on:</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/nirupam-singha-4a00542b6" target="_blank">LinkedIn</a>
-        <a href="https://github.com/nirupamsingha2000-blip" target="_blank">GitHub</a>
+      <div class="social-links" role="list">
+        <a class="icon-link" role="listitem" href="https://www.linkedin.com/in/nirupam-singha-4a00542b6" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6 1.11 6 0 4.88 0 3.5 0 2.12 1.11 1 2.49 1c1.38 0 2.49 1.12 2.49 2.5zM.2 8.98h4.58V24H.2V8.98zm7.58 0H12v2.06h.07c.52-.98 1.78-2.02 3.66-2.02 3.92 0 4.64 2.58 4.64 5.93V24h-4.58v-7.34c0-1.75-.03-4-2.44-4-2.44 0-2.82 1.91-2.82 3.88V24H7.78V8.98z" fill="#0A66C2"/></svg>
+          <span class="sr-only">LinkedIn</span>
+        </a>
+
+        <a class="icon-link" role="listitem" href="https://github.com/nirupamsingha2000-blip" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.27 3.36.97.1-.75.4-1.27.72-1.56-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.52.12-3.17 0 0 .98-.31 3.2 1.19a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.5 3.2-1.19 3.2-1.19.64 1.65.24 2.87.12 3.17.75.81 1.2 1.84 1.2 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.77 1.08.77 2.18 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" fill="#111"/></svg>
+          <span class="sr-only">GitHub</span>
+        </a>
       </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you'd like to get in touch, send a message below or email <a href="mailto:nirupam@example.com">nirupam@example.com</a>.</p>
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" data-formspree-id="your-form-id">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+
+        <div class="form-actions">
+          <button class="btn" type="submit">Send</button>
+          <span class="form-status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Nirupam Singha • Designed with curiosity and AI</p>
+  <!-- Footer -->
+  <footer class="container">
+    <div class="footer-inner">
+      <p> 2025 Nirupam Singha  Physics  Chemistry  Maths Coaching</p>
+      <div class="footer-icons">
+        <a class="icon-link" href="mailto:nirupam@example.com" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 4v16h20V4H2zm18 2l-8 5-8-5V6l8 5 8-5v0z" fill="#fff"/></svg>
+        </a>
+      </div>
+    </div>
   </footer>
-</body>
- 
-</body>
-</html>
-// ...existing code...
-<link rel="stylesheet" href="style/main.css">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Education & AI</title>
-  <link rel="stylesheet" href="style/main.css" />
-</head>
-<body>
- <section class="hero">
-  <div class="hero-content">
-    <h1>Hi, I’m Nirupam Singha</h1>
-    <p>Exploring how AI can reshape Education in India 🚀</p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/nirupam-singha-4a00542b6" target="_blank">LinkedIn</a>
-      <a href="https://github.com/nirupamsingha2000-blip" target="_blank">GitHub</a>
-    </div>
-  </div>
-</section>
- <section class="about">
-  <h2>About Me</h2>
-  <p>
-    I’m an educator and content creator exploring how Artificial Intelligence 
-    can make learning more personalized, inclusive, and engaging for students across India. 
-    My goal is to bridge the gap between AI technology and real classroom impact.
-  </p>
-</section>
-<section class="projects">
-  <h2>My Work</h2>
-  <div class="project-list">
-    <div class="project">
-      <h3>AI Ethics in Schools</h3>
-      <p>A research-driven initiative exploring how AI ethics can be integrated into India’s school curriculum.</p>
-    </div>
-    <div class="project">
-      <h3>Learning with GPT</h3>
-      <p>Creating AI-powered educational videos that make complex topics simple, engaging, and accessible.</p>
-    </div>
-    <div class="project">
-      <h3>Educators Connect</h3>
-      <p>A platform idea to bring teachers, creators, and technologists together to shape the future of learning.</p>
-    </div>
-  </div>
-</section>
-
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  <script>
+    // Back to Top Button
+    const topBtn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      topBtn.style.display = window.scrollY > 300 ? "block" : "none";
     });
-  });
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
 
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
-</script>
-<footer>
-  <p>© 2025 Nirupam’s World | Learning • AI • Education • Design • Creativity</p>
-</footer>
+    // Class Filter
+    (function(){
+      const pills = document.querySelectorAll('.class-list a[data-filter]');
+      const cards = document.querySelectorAll('.product-card');
+      function setActive(targetLink){
+        document.querySelectorAll('.class-list li').forEach(li => li.classList.remove('active'));
+        targetLink.closest('li').classList.add('active');
+      }
+      function filterClass(filter){
+        if(filter === 'all'){
+          cards.forEach(c => c.style.display='');
+          return;
+        }
+        cards.forEach(c => {
+          if(c.getAttribute('data-class') === filter) c.style.display=''; else c.style.display='none';
+        });
+      }
+      pills.forEach(p => {
+        p.addEventListener('click', function(e){
+          e.preventDefault();
+          const f = this.getAttribute('data-filter');
+          setActive(this);
+          filterClass(f);
+        });
+      });
+    })();
 
-</body><section class="project-intro">
-  <div class="intro-card">
-    <h2>Welcome to My Project</h2>
-    <p>This is the initial version of my project. More coming soon 🚀</p>
-    <div class="features">
-      <div class="feature">
-        ⚡
-        <h3>Fast</h3>
-        <p>Lightning fast performance</p>
-      </div>
-      <div class="feature">
-        🎨
-        <h3>Beautiful</h3>
-        <p>Modern and clean design</p>
-      </div>
-      <div class="feature">
-        📱
-        <h3>Responsive</h3>
-        <p>Works on all devices</p>
-      </div>
-    </div>
-  </div>
-</section>
+    // Contact Form
+    (function() {
+      const form = document.querySelector('.contact-form');
+      if (!form) return;
+      const formId = form.getAttribute('data-formspree-id');
+      const statusEl = document.querySelector('.form-status');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
 
+        if (formId && formId !== 'your-form-id') {
+          const endpoint = form.action;
+          fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          }).then(res => res.json()).then(data => {
+            if (data.ok === false) {
+              statusEl.textContent = 'Submission failed. Please try emailing directly.';
+            } else {
+              statusEl.textContent = 'Thanks — your message was sent.';
+              form.reset();
+            }
+          }).catch(() => {
+            statusEl.textContent = 'Network error. Please try again later.';
+          });
+        } else {
+          const subject = encodeURIComponent('Contact from website');
+          const body = Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message};
+          window.location.href = mailto:nirupam@example.com?subject=${subject}&body=${body};
+        }
+      });
+    })();
+  </script>
+</body>
 </html>
-
-<section class="project-intro">
-  <div class="intro-card">
-    <h2>Welcome to My Project</h2>
-    <p>This is the initial version of my project. More coming soon 🚀</p>
-    <div class="features">
-      <div class="feature">
-        ⚡
-        <h3>Fast</h3>
-        <p>Lightning fast performance</p>
-      </div>
-      <div class="feature">
-        🎨
-        <h3>Beautiful</h3>
-        <p>Modern and clean design</p>
-      </div>
-      <div class="feature">
-        📱
-        <h3>Responsive</h3>
-        <p>Works on all devices</p>
-      </div>
-    </div>
-  </div>
-</section>
