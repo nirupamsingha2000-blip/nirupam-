@@ -5,69 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nirupam's Coaching — Classes 9 to 12</title>
   <style>
-    :root{
-      --bg-1: #2b0f3a;
-      --bg-2: #5b2fb6;
-      --card: rgba(255,255,255,0.06);
-      --glass: rgba(255,255,255,0.06);
-      --accent: #ff7fbf;
-      --muted: rgba(255,255,255,0.7);
-      --glass-border: rgba(255,255,255,0.06);
-      --card-radius: 18px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    /* Page background to mimic your screenshot's purple gradient */
-    body{margin:0; min-height:100vh; background: radial-gradient(1000px 600px at 10% 10%, #7240d1 0%, transparent 10%), linear-gradient(180deg,var(--bg-2), var(--bg-1)); color:#fff;}
-    nav{background:rgba(8,10,23,0.9); padding:18px 28px; display:flex; align-items:center; gap:24px; position:sticky; top:0; z-index:50}
-    nav .brand{font-weight:800; font-size:20px; color:var(--accent)}
-    nav a{color:#e9e7ff; text-decoration:none; font-weight:700}
-    .container{max-width:1120px; margin:36px auto; padding:28px;}
-
-    /* Hero glass panel */
-    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02)); padding:40px; border-radius:26px; box-shadow:0 12px 30px rgba(0,0,0,0.4); border:1px solid var(--glass-border)}
-    .hero h1{font-size:48px; margin:0 0 6px; color:var(--accent); letter-spacing:1px}
-    .hero p.lead{color:var(--muted); margin:0 0 26px}
-
-    /* class filter pills */
-    .filters{display:flex; gap:12px; margin-bottom:22px; flex-wrap:wrap}
-    .pill{padding:10px 14px; border-radius:999px; background:transparent; border:1px solid rgba(255,255,255,0.06); cursor:pointer; color:#fff; font-weight:700; transition:all 0.3s ease}
-    .pill.active{background:linear-gradient(90deg,#8a2be2, #b54bdc); box-shadow:0 8px 24px rgba(133,46,197,0.25)}
-
-    /* grid for class cards */
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
-    .card{background:var(--glass); padding:26px; border-radius:18px; min-height:260px; display:flex; flex-direction:column; justify-content:flex-start; align-items:center; text-align:center; border:1px solid rgba(255,255,255,0.03); opacity:0; transform:translateY(20px) scale(.98); transition:all 600ms cubic-bezier(.2,.9,.2,1)}
-    .card.active-reveal{opacity:1; transform:translateY(0) scale(1)}
-    .card .icon{width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:14px; background:rgba(255,255,255,0.06)}
+    :root{--bg-1:#2b0f3a;--bg-2:#5b2fb6;--card:rgba(255,255,255,0.04);--accent:#ff7fbf;--muted:rgba(255,255,255,0.75);--glass-border:rgba(255,255,255,0.06);--card-radius:18px;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    body{margin:0;min-height:100vh;background:radial-gradient(1000px 600px at 10% 10%,#7240d1 0%,transparent 10%),linear-gradient(180deg,var(--bg-2),var(--bg-1));color:#fff}
+    nav{background:rgba(8,10,23,0.9);padding:18px 28px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:50}
+    nav .brand{font-weight:800;font-size:20px;color:var(--accent)}nav a{color:#e9e7ff;text-decoration:none;font-weight:700}
+    .container{max-width:1120px;margin:36px auto;padding:28px}
+    .hero{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.02));padding:40px;border-radius:26px;box-shadow:0 12px 30px rgba(0,0,0,0.4);border:1px solid var(--glass-border)}
+    .hero h1{font-size:48px;margin:0 0 6px;color:var(--accent);letter-spacing:1px}
+    .hero p.lead{color:var(--muted);margin:0 0 26px}
+    .filters{display:flex;gap:12px;margin-bottom:22px}
+    .pill{padding:10px 14px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;color:#fff;font-weight:700}
+    .pill.active{background:linear-gradient(90deg,#8a2be2,#b54bdc);box-shadow:0 8px 24px rgba(133,46,197,0.25)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:var(--card);padding:26px;border-radius:18px;min-height:260px;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;border:1px solid rgba(255,255,255,0.03);opacity:0;transform:translateY(20px) scale(.98);transition:all 600ms cubic-bezier(.2,.9,.2,1)}
+    .card.active-reveal{opacity:1;transform:translateY(0) scale(1)}
+    .card .icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px;background:rgba(255,255,255,0.06)}
     .card h3{margin:6px 0 8px}
-    .card p{color:rgba(255,255,255,0.8); line-height:1.5}
-    .cta{display:inline-block; margin-top:18px; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:700; border:1px solid rgba(255,255,255,0.06); transition:all 0.3s ease; cursor:pointer}
-    .cta:hover{background:linear-gradient(90deg,#8a2be2, #b54bdc); box-shadow:0 8px 24px rgba(133,46,197,0.25)}
+    .card p{color:rgba(255,255,255,0.85);line-height:1.5}
+    .cta{display:inline-block;margin-top:12px;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid rgba(255,255,255,0.06)}
+    .hero{opacity:0;transform:translateY(8px);transition:all 700ms cubic-bezier(.2,.9,.2,1)}.hero.visible{opacity:1;transform:translateY(0)}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}.icon{animation:floaty 4s ease-in-out infinite}
+    .section-title{font-size:24px;margin:40px 0 18px}
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:36px}}@media (max-width:620px){.grid{grid-template-columns:1fr}.container{padding:16px}.hero{padding:20px}nav{padding:12px 16px}.hero h1{font-size:28px}}
 
-    /* reveal animations for icons */
-    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
-    .icon{animation:floaty 4s ease-in-out infinite}
+    /* New: expandable details inside each card */
+    .details{margin-top:16px;background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:14px;width:100%;max-width:520px;display:none;text-align:left;color:rgba(255,255,255,0.9)}
+    .details.open{display:block;animation:openDetail 420ms cubic-bezier(.2,.9,.2,1)}
+    @keyframes openDetail{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .topics{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;font-weight:700}
+    .subrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .info-block{flex:1;min-width:160px;background:rgba(0,0,0,0.03);padding:10px;border-radius:8px}
+    .toggle-btn{margin-top:10px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:#fff;cursor:pointer}
 
-    /* Section titles */
-    .section-title{font-size:24px; margin:40px 0 18px}
+    /* Modal for sample lesson */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:200;opacity:0;pointer-events:none;transition:opacity 220ms ease}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal .panel{background:linear-gradient(180deg,#2b143c,#40104f);padding:22px;border-radius:14px;max-width:780px;width:min(94%,780px);color:#fff}
+    .modal .panel h3{margin-top:0}
+    .close-x{position:absolute;right:18px;top:18px;cursor:pointer;font-weight:800}
 
-    /* Responsive */
-    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)} .hero h1{font-size:36px}}
-    @media (max-width:620px){.grid{grid-template-columns:1fr} .container{padding:16px} .hero{padding:20px} nav{padding:12px 16px} .hero h1{font-size:28px}}
-
-    /* subtle entrance for the hero */
-    .hero{opacity:0; transform:translateY(8px); transition:all 700ms cubic-bezier(.2,.9,.2,1)}
-    .hero.visible{opacity:1; transform:translateY(0)}
-
-    /* small shimmer underline for enroll */
-    .enroll{display:inline-block; margin-top:12px; color:#c496ff; text-decoration:underline; font-weight:600}
-
-    /* Filters bar sticky */
-    .filters-bar{position:sticky; top:74px; background:transparent; padding:8px 0; z-index:40}
-
-    /* Contact form */
-    input, select{color-scheme:dark}
-    input::placeholder, select::placeholder{color:rgba(255,255,255,0.5)}
-    button{cursor:pointer}
+    /* small FAQ inside details */
+    .faq{margin-top:12px}
+    .faq summary{cursor:pointer;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);}
+    .faq details{margin-top:8px}
 
   </style>
 </head>
@@ -76,7 +57,6 @@
     <div class="brand">Nirupam's Coaching</div>
     <div style="flex:1"></div>
     <a href="#classes">Classes</a>
-    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -85,68 +65,181 @@
       <h1>Nirupam's Coaching</h1>
       <p class="lead">Physics · Chemistry · Maths — Concept clarity, exam strategies, and top results for Class 9 → 12.</p>
 
-      <div class="filters-bar">
-        <div class="filters" id="filterPills">
-          <button class="pill active" data-filter="all">All Classes</button>
-          <button class="pill" data-filter="9">Class 9</button>
-          <button class="pill" data-filter="10">Class 10</button>
-          <button class="pill" data-filter="11">Class 11</button>
-          <button class="pill" data-filter="12">Class 12</button>
-        </button>
+      <div class="filters" id="filterPills">
+        <button class="pill active" data-filter="all">All Classes</button>
+        <button class="pill" data-filter="9">Class 9</button>
+        <button class="pill" data-filter="10">Class 10</button>
+        <button class="pill" data-filter="11">Class 11</button>
+        <button class="pill" data-filter="12">Class 12</button>
       </div>
 
-      <div class="section" id="classes">
-        <div class="grid" id="cardsGrid">
+      <div class="grid" id="cardsGrid">
 
-          <!-- Class 9 card -->
-          <article class="card reveal" data-classes="9">
-            <div class="icon">✏️</div>
-            <h3>Class 9 — Foundation</h3>
-            <p>Strong foundations in physics, chemistry & maths. Weekly practice, short tests & concept maps to build understanding.</p>
-            <a class="cta enroll" href="#contact" data-class="9">Enroll Class 9</a>
-          </article>
+        <!-- Class 9 card -->
+        <article class="card reveal" data-classes="9">
+          <div class="icon">9</div>
+          <h3>Class 9 — Foundation</h3>
+          <p>Strong foundations in physics, chemistry & maths. Weekly practice, short tests & concept maps to build understanding.</p>
+          <button class="toggle-btn" data-target="d9">Show details</button>
 
-          <!-- Class 10 card -->
-          <article class="card reveal" data-classes="10">
-            <div class="icon">📖</div>
-            <h3>Class 10 — Board Ready</h3>
-            <p>Board-focused syllabus coverage with past paper practice, exam strategies, and time-management drills for board success.</p>
-            <a class="cta enroll" href="#contact" data-class="10">Enroll Class 10</a>
-          </article>
+          <div class="details" id="d9">
+            <strong>What you'll learn</strong>
+            <div class="topics">
+              <div class="chip">Motion & Force</div>
+              <div class="chip">Atoms & Molecules</div>
+              <div class="chip">Algebra basics</div>
+              <div class="chip">Experiments & Lab skills</div>
+            </div>
 
-          <!-- Class 11 card -->
-          <article class="card reveal" data-classes="11">
-            <div class="icon">🧬</div>
-            <h3>Class 11 — Concept Builder</h3>
-            <p>Detailed theory + numerical problem solving, conceptual labs, and NEET/JEE-friendly approaches to strengthen basics.</p>
-            <a class="cta enroll" href="#contact" data-class="11">Enroll Class 11</a>
-          </article>
+            <div class="subrow">
+              <div class="info-block">
+                <strong>Weekly plan</strong>
+                <div style="margin-top:8px">3 classes/week · 1.5 hrs · Concept + practice</div>
+              </div>
+              <div class="info-block">
+                <strong>Assessment</strong>
+                <div style="margin-top:8px">Weekly quizzes + monthly mock</div>
+              </div>
+            </div>
 
-          <!-- Class 12 card -->
-          <article class="card reveal" data-classes="12">
-            <div class="icon">🚀</div>
-            <h3>Class 12 — Exam Cracker</h3>
-            <p>Advanced problem sets, timed full-syllabus mocks, score-boosting shortcuts and revision masterclasses for top ranks.</p>
-            <a class="cta enroll" href="#contact" data-class="12">Enroll Class 12</a>
-          </article>
+            <div class="faq">
+              <details><summary>Sample lesson: Motion in a straight line</summary>
+                <p style="margin:8px 0 0">Concept demo, step-by-step derivations, 5 practice problems and a quick worksheet to take home.</p>
+              </details>
+              <details><summary>Fees & schedule</summary>
+                <p style="margin:8px 0 0">₹800 per subject/month. Evening & weekend batches available.</p>
+              </details>
+            </div>
 
-          <!-- Combined support & doubt card -->
-          <article class="card reveal" data-classes="all">
-            <div class="icon">★</div>
-            <h3>Doubt Support & Tests</h3>
-            <p>Daily doubt clearing, 1:1 sessions and weekly timed tests to track progress and fix weak areas quickly.</p>
-            <a class="cta enroll" href="#contact" data-class="all">Get Support</a>
-          </article>
+          </div>
+        </article>
 
-          <!-- Exam-focused practice -->
-          <article class="card reveal" data-classes="all">
-            <div class="icon">✎</div>
-            <h3>Exam-Focused Practice</h3>
-            <p>Past papers, sectional tests, and strategy sessions designed for board and competitive exam performance.</p>
-            <a class="cta enroll" href="#contact" data-class="all">Practice Now</a>
-          </article>
+        <!-- Class 10 card -->
+        <article class="card reveal" data-classes="10">
+          <div class="icon">10</div>
+          <h3>Class 10 — Board Ready</h3>
+          <p>Board-focused syllabus coverage with past paper practice, exam strategies, and time-management drills for board success.</p>
+          <button class="toggle-btn" data-target="d10">Show details</button>
 
-        </div>
+          <div class="details" id="d10">
+            <strong>What you'll learn</strong>
+            <div class="topics">
+              <div class="chip">Heat & Thermodynamics</div>
+              <div class="chip">Chemical reactions</div>
+              <div class="chip">Coordinate geometry</div>
+              <div class="chip">Exam technique</div>
+            </div>
+            <div class="subrow">
+              <div class="info-block"><strong>Weekly plan</strong><div style="margin-top:8px">4 classes/week · 2 hrs · Past-paper sessions</div></div>
+              <div class="info-block"><strong>Assessment</strong><div style="margin-top:8px">Sectional tests + timed full-syllabus mocks</div></div>
+            </div>
+
+            <div class="faq">
+              <details><summary>Sample lesson: Heat & Temperature</summary>
+                <p style="margin:8px 0 0">Concept demo, NCERT-style practice questions, and solved board questions from previous years.</p>
+              </details>
+              <details><summary>Fees & schedule</summary>
+                <p style="margin:8px 0 0">₹1000 per subject/month. Weekend crash courses before boards available.</p>
+              </details>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Class 11 card -->
+        <article class="card reveal" data-classes="11">
+          <div class="icon">11</div>
+          <h3>Class 11 — Concept Builder</h3>
+          <p>Detailed theory + numerical problem solving, conceptual labs, and NEET/JEE-friendly approaches to strengthen basics.</p>
+          <button class="toggle-btn" data-target="d11">Show details</button>
+
+          <div class="details" id="d11">
+            <strong>What you'll learn</strong>
+            <div class="topics">
+              <div class="chip">Kinematics & Dynamics</div>
+              <div class="chip">Atomic structure</div>
+              <div class="chip">Trigonometry & Calculus intro</div>
+              <div class="chip">Lab techniques</div>
+            </div>
+            <div class="subrow">
+              <div class="info-block"><strong>Weekly plan</strong><div style="margin-top:8px">5 classes/week · 2 hrs · Problem-solving focus</div></div>
+              <div class="info-block"><strong>Assessment</strong><div style="margin-top:8px">Topic tests + topic-wise worksheets</div></div>
+            </div>
+
+            <div class="faq">
+              <details><summary>Sample lesson: Laws of Motion</summary>
+                <p style="margin:8px 0 0">In-depth derivations, solved PYQs and a set of 8 MCQ + 4 numericals for practice.</p>
+              </details>
+              <details><summary>Fees & schedule</summary>
+                <p style="margin:8px 0 0">₹1,400 per subject/month. Doubt classes thrice weekly included.</p>
+              </details>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Class 12 card -->
+        <article class="card reveal" data-classes="12">
+          <div class="icon">12</div>
+          <h3>Class 12 — Exam Cracker</h3>
+          <p>Advanced problem sets, timed full-syllabus mocks, score-boosting shortcuts and revision masterclasses for top ranks.</p>
+          <button class="toggle-btn" data-target="d12">Show details</button>
+
+          <div class="details" id="d12">
+            <strong>What you'll learn</strong>
+            <div class="topics">
+              <div class="chip">Electrostatics & Current</div>
+              <div class="chip">Organic reaction mechanisms</div>
+              <div class="chip">Advanced calculus</div>
+              <div class="chip">Exam strategy</div>
+            </div>
+            <div class="subrow">
+              <div class="info-block"><strong>Weekly plan</strong><div style="margin-top:8px">6 classes/week · 2 hrs · Mocks & revision</div></div>
+              <div class="info-block"><strong>Assessment</strong><div style="margin-top:8px">Full-syllabus mocks + analysis sessions</div></div>
+            </div>
+
+            <div class="faq">
+              <details><summary>Sample lesson: Electrostatics</summary>
+                <p style="margin:8px 0 0">Field diagrams, derivations, example problems and a timed practice sheet.</p>
+              </details>
+              <details><summary>Fees & schedule</summary>
+                <p style="margin:8px 0 0">₹1,800 per subject/month. Weekend doubt clinics and revision packs included.</p>
+              </details>
+            </div>
+
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="cta" data-sample="12">Open sample lesson</button>
+              <a class="cta" href="#contact">Enroll Class 12</a>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Support & practice cards -->
+        <article class="card reveal" data-classes="all">
+          <div class="icon">★</div>
+          <h3>Doubt Support & Tests</h3>
+          <p>Daily doubt clearing, 1:1 sessions and weekly timed tests to track progress and fix weak areas quickly.</p>
+          <button class="toggle-btn" data-target="dS">Show details</button>
+          <div class="details" id="dS">
+            <strong>Support</strong>
+            <div class="topics"><div class="chip">Daily doubt sessions</div><div class="chip">1:1 mentoring</div><div class="chip">Recorded solutions</div></div>
+            <div class="subrow"><div class="info-block"><strong>When</strong><div style="margin-top:8px">Daily 6–7pm</div></div><div class="info-block"><strong>How</strong><div style="margin-top:8px">Zoom & WhatsApp support</div></div></div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-classes="all">
+          <div class="icon">✎</div>
+          <h3>Exam-Focused Practice</h3>
+          <p>Past papers, sectional tests, and strategy sessions designed for board and competitive exam performance.</p>
+          <button class="toggle-btn" data-target="dP">Show details</button>
+          <div class="details" id="dP">
+            <strong>What we do</strong>
+            <div class="topics"><div class="chip">Past paper drills</div><div class="chip">Timed mocks</div><div class="chip">Error analysis</div></div>
+            <div class="subrow"><div class="info-block"><strong>Format</strong><div style="margin-top:8px">Sectional & full tests</div></div><div class="info-block"><strong>Reports</strong><div style="margin-top:8px">Personalized feedback</div></div></div>
+          </div>
+        </article>
+
       </div>
 
     </section>
@@ -154,28 +247,16 @@
     <section style="margin-top:40px;">
       <h2 class="section-title">Why choose us?</h2>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-        <div class="card reveal" data-classes="all">
-          <div class="icon">👨‍🏫</div>
-          <h3>Experienced Faculty</h3>
-          <p>Years of classroom experience and proven teaching methods tailored to board and competitive exams.</p>
-        </div>
-        <div class="card reveal" data-classes="all">
-          <div class="icon">📝</div>
-          <h3>Practice First</h3>
-          <p>Timed tests, curated question banks and targetted corrections to raise the score fast.</p>
-        </div>
-        <div class="card reveal" data-classes="all">
-          <div class="icon">💡</div>
-          <h3>Concept Clarity</h3>
-          <p>Visuals, analogies and minimal-jargon explanations so students remember, not rote-learn.</p>
-        </div>
+        <div class="card reveal" data-classes="all"><div class="icon">👨‍🏫</div><h3>Experienced Faculty</h3><p>Years of classroom experience and proven teaching methods tailored to board and competitive exams.</p></div>
+        <div class="card reveal" data-classes="all"><div class="icon">📝</div><h3>Practice First</h3><p>Timed tests, curated question banks and targetted corrections to raise the score fast.</p></div>
+        <div class="card reveal" data-classes="all"><div class="icon">💡</div><h3>Concept Clarity</h3><p>Visuals, analogies and minimal-jargon explanations so students remember, not rote-learn.</p></div>
       </div>
     </section>
 
     <section id="contact" style="margin:48px 0;">
       <h2 class="section-title">Contact & Enrollment</h2>
       <p style="color:var(--muted)">Fill this quick form or message on WhatsApp to enroll — we will respond within a day.</p>
-      <form style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;">
+      <form style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
         <input placeholder="Name" style="flex:1;min-width:200px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
         <input placeholder="Phone" style="width:180px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
         <select style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
@@ -184,52 +265,54 @@
           <option value="11">Class 11</option>
           <option value="12">Class 12</option>
         </select>
-        <button type="button" style="padding:12px 18px;border-radius:10px;background:linear-gradient(90deg,#8a2be2,#b54bdc);border:none;color:#fff;font-weight:700;transition:all 0.3s ease">Send</button>
+        <button type="button" style="padding:12px 18px;border-radius:10px;background:linear-gradient(90deg,#8a2be2,#b54bdc);border:none;color:#fff;font-weight:700">Send</button>
       </form>
     </section>
 
   </main>
 
+  <!-- Modal for sample lessons -->
+  <div class="modal" id="modal">
+    <div class="panel">
+      <div class="close-x" id="closeModal">✕</div>
+      <h3 id="modalTitle">Sample Lesson</h3>
+      <p id="modalBody">Lesson content will appear here.</p>
+    </div>
+  </div>
+
   <script>
-    // Simple JS to: 1) reveal elements on scroll 2) filter by class using pills 3) hero entrance
     document.addEventListener('DOMContentLoaded', function(){
-      // hero entrance
       requestAnimationFrame(()=> document.getElementById('hero').classList.add('visible'));
 
-      // IntersectionObserver for reveal
       const observer = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){ entry.target.classList.add('active-reveal'); }
-        });
+        entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('active-reveal'); });
       },{threshold:0.12});
-
       document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
       // Filter pills
       const pills = Array.from(document.querySelectorAll('.pill'));
       const cards = Array.from(document.querySelectorAll('#cardsGrid .card'));
-
       function setFilter(filter){
-        pills.forEach(p=> p.classList.toggle('active', p.dataset.filter === filter));
-        cards.forEach((c)=>{
-          const classes = c.dataset.classes.split(' ');
-          if(filter === 'all' || classes.includes(filter)){
-            c.style.display = '';
-          } else {
-            c.style.display = 'none';
-          }
-        });
+        pills.forEach(p=> p.classList.toggle('active', p.dataset.filter===filter));
+        cards.forEach((c)=>{ const classes = c.dataset.classes.split(' '); if(filter==='all' || classes.includes(filter)) c.style.display=''; else c.style.display='none'; });
       }
-
       pills.forEach(p=> p.addEventListener('click', ()=> setFilter(p.dataset.filter)));
 
-      // Enroll buttons quick link — scroll to contact
-      document.querySelectorAll('.enroll').forEach(btn=>{
-        btn.addEventListener('click', (e)=>{
-          e.preventDefault();
-          document.getElementById('contact').scrollIntoView({behavior:'smooth', block:'center'});
+      // Toggle details inside cards
+      document.querySelectorAll('.toggle-btn').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const id = btn.dataset.target; const el = document.getElementById(id);
+          if(!el) return; const open = el.classList.toggle('open'); btn.textContent = open? 'Hide details' : 'Show details';
         });
       });
+
+      // Modal sample lesson
+      const modal = document.getElementById('modal'); const modalTitle = document.getElementById('modalTitle'); const modalBody = document.getElementById('modalBody');
+      document.querySelectorAll('[data-sample]').forEach(btn=> btn.addEventListener('click', ()=>{
+        const cls = btn.dataset.sample; modalTitle.textContent = 'Sample lesson — Class ' + cls; modalBody.innerHTML = '<strong>Topic:</strong> Electrostatics overview<br><br><ol><li>Concept & visualization</li><li>Derivation walkthrough</li><li>2 solved examples</li><li>Practice sheet (timed)</li></ol>'; modal.classList.add('open');
+      }));
+      document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('open'));
+      modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('open'); });
 
     });
   </script>
