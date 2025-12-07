@@ -44,7 +44,12 @@
     .subject h4{margin:0 0 6px}
     .chapters{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
     .chapter{padding:8px;border-radius:8px;background:rgba(255,255,255,0.03);font-size:14px}
-    .chapter-summary{margin-top:6px;font-size:13px;line-height:1.4;color:rgba(255,255,255,0.8)}
+    .chapter-notes{margin-top:8px;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.85);max-height:400px;overflow-y:auto}
+    .chapter-notes h4{margin:8px 0 6px;color:#ffd1ff;font-size:14px}
+    .chapter-notes p{margin:6px 0}
+    .chapter-notes ul{margin:6px 0;padding-left:18px}
+    .chapter-notes li{margin:4px 0}
+    .chapter-notes ol{margin:6px 0;padding-left:18px}
     summary.subject-toggle{cursor:pointer;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02)}
     details.subject-details{margin-top:8px}
 
@@ -211,7 +216,56 @@
                 <div class="subject">
                   <h4>Chapters</h4>
                   <div class="chapters">
-                    <div class="chapter">Kinematics<div class="chapter-summary"><strong>Summary:</strong> Introduction to motion, displacement vs distance, speed & velocity, acceleration, and derivations of equations of motion. Includes graphical analysis (x–t, v–t, a–t graphs), relative motion basics, and foundational concepts used throughout mechanics. (Content taken from uploaded study material excluding practice questions.)</div></div>
+                    <div class="chapter">Kinematics
+                      <details style="margin-top:8px">
+                        <summary style="cursor:pointer;padding:6px;background:rgba(255,255,255,0.05);border-radius:6px;font-weight:600">View full notes</summary>
+                        <div class="chapter-notes">
+                          <h4>Module 1 — Introduction & Basic Concepts</h4>
+                          <p><strong>What is Kinematics?</strong> The branch of mechanics that describes the motion of objects without considering the forces that cause the motion. Kinematics tells us <em>how</em> objects move (position, velocity, acceleration), not why.</p>
+
+                          <h4>Frame of Reference & Sign Convention</h4>
+                          <ul>
+                            <li><strong>Frame of reference:</strong> Coordinate system used to measure positions and displacements.</li>
+                            <li><strong>Sign convention:</strong> Choose positive direction (right/up); keep consistent. For vertical motion, up = positive, g = -10 m/s² if up is positive.</li>
+                          </ul>
+
+                          <h4>Module 2 — Distance, Displacement, Speed & Velocity</h4>
+                          <p><strong>Distance</strong>: Scalar, total path length. <br><strong>Displacement</strong>: Vector, straight-line change in position (Δx or s).</p>
+                          <p><strong>Average speed</strong> = Total distance / Total time.<br><strong>Average velocity</strong> = Displacement / Time. <br><strong>Instantaneous velocity</strong> v = ds/dt.</p>
+                          <p><strong>Special results</strong>: For uniform acceleration, average velocity = (u+v)/2.</p>
+
+                          <h4>Module 3 — Acceleration</h4>
+                          <p><strong>Acceleration</strong> a = dv/dt. Average acceleration = Δv/Δt. Instantaneous acceleration a = d²s/dt².</p>
+                          <p>Types: uniform (a constant), uniformly accelerated, non-uniformly accelerated.</p>
+
+                          <h4>Module 4 — Equations of Motion (Derivations)</h4>
+                          <p>Conditions: constant acceleration, motion along a straight line.</p>
+                          <ol>
+                            <li><strong>First equation:</strong> v = u + at. (From definition of acceleration.)</li>
+                            <li><strong>Second equation:</strong> s = ut + ½at². (From average velocity or calculus.)</li>
+                            <li><strong>Third equation:</strong> v² = u² + 2as. (Eliminate time between first and second.)</li>
+                            <li><strong>Distance in n-th second:</strong> S_n = u + (a/2)(2n -1)</li>
+                          </ol>
+
+                          <h4>Module 5 — Graphical Analysis of Motion</h4>
+                          <p>Key points: slope of x–t graph = velocity; slope of v–t graph = acceleration; area under v–t = displacement; area under a–t = change in velocity.</p>
+
+                          <h4>Module 6 — Relative Motion</h4>
+                          <p>Relative velocity: v_AB = v_A - v_B. All motion is relative — formulae for 1D and vector subtraction for 2D (including river and rain problems).</p>
+
+                          <h4>Module 7 — Projectile Motion (Summary)</h4>
+                          <p>Treat horizontal and vertical separately under gravity (g). Horizontal motion: x = u cosθ · t (no acceleration). Vertical motion: y = u sinθ · t - ½ g t².</p>
+                          <ul>
+                            <li><strong>Time of flight:</strong> T = 2u sinθ / g.</li>
+                            <li><strong>Maximum height:</strong> H = u² sin²θ / (2g).</li>
+                            <li><strong>Range:</strong> R = u² sin2θ / g (maximum at θ = 45°).</li>
+                            <li><strong>Trajectory equation:</strong> y = x tanθ - (g x²) / (2 u² cos²θ)</li>
+                          </ul>
+
+                          <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.7)"><em>Notes from your uploaded Kinematics PDF (practice questions excluded)</em></p>
+                        </div>
+                      </details>
+                    </div>
                     <div class="chapter">Laws of Motion</div>
                     <div class="chapter">Work, Energy & Power</div>
                     <div class="chapter">Rotational Motion</div>
@@ -407,7 +461,6 @@
         const cls = btn.dataset.sample;
         modalTitle.textContent = 'Sample lesson — Class ' + cls;
 
-        // Example lesson content per class (you can replace with your real lesson)
         const lessons = {
           '9': {topic:'Motion in a Straight Line', bullets:['Displacement, speed, velocity','Uniform & non-uniform motion','Graphs of motion','5 practice problems']},
           '10':{topic:'Heat & Temperature', bullets:['Zeroth law, temperature scales','Heat transfer modes','Specific heat & calorimetry','NCERT practice + PYQs']},
