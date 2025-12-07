@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nirupam's Coaching — Classes 9 to 12</title>
+  <title>Nirupam's Coaching — Classes 9 to 12 (Subjects & Chapters)</title>
   <style>
     :root{--bg-1:#2b0f3a;--bg-2:#5b2fb6;--card:rgba(255,255,255,0.04);--accent:#ff7fbf;--muted:rgba(255,255,255,0.75);--glass-border:rgba(255,255,255,0.06);--card-radius:18px;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
     body{margin:0;min-height:100vh;background:radial-gradient(1000px 600px at 10% 10%,#7240d1 0%,transparent 10%),linear-gradient(180deg,var(--bg-2),var(--bg-1));color:#fff}
@@ -28,7 +28,7 @@
     .section-title{font-size:24px;margin:40px 0 18px}
     @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:36px}}@media (max-width:620px){.grid{grid-template-columns:1fr}.container{padding:16px}.hero{padding:20px}nav{padding:12px 16px}.hero h1{font-size:28px}}
 
-    /* New: expandable details inside each card */
+    /* expandable details */
     .details{margin-top:16px;background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:14px;width:100%;max-width:520px;display:none;text-align:left;color:rgba(255,255,255,0.9)}
     .details.open{display:block;animation:openDetail 420ms cubic-bezier(.2,.9,.2,1)}
     @keyframes openDetail{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -38,17 +38,20 @@
     .info-block{flex:1;min-width:160px;background:rgba(0,0,0,0.03);padding:10px;border-radius:8px}
     .toggle-btn{margin-top:10px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:#fff;cursor:pointer}
 
-    /* Modal for sample lesson */
+    /* subjects & chapters */
+    .subjects{margin-top:12px}
+    .subject{margin-top:10px;border-radius:10px;padding:10px;background:rgba(255,255,255,0.02)}
+    .subject h4{margin:0 0 6px}
+    .chapters{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .chapter{padding:8px;border-radius:8px;background:rgba(255,255,255,0.03);font-size:14px}
+    summary.subject-toggle{cursor:pointer;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02)}
+    details.subject-details{margin-top:8px}
+
+    /* modal */
     .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:200;opacity:0;pointer-events:none;transition:opacity 220ms ease}
     .modal.open{opacity:1;pointer-events:auto}
     .modal .panel{background:linear-gradient(180deg,#2b143c,#40104f);padding:22px;border-radius:14px;max-width:780px;width:min(94%,780px);color:#fff}
-    .modal .panel h3{margin-top:0}
     .close-x{position:absolute;right:18px;top:18px;cursor:pointer;font-weight:800}
-
-    /* small FAQ inside details */
-    .faq{margin-top:12px}
-    .faq summary{cursor:pointer;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);}
-    .faq details{margin-top:8px}
 
   </style>
 </head>
@@ -83,32 +86,52 @@
           <button class="toggle-btn" data-target="d9">Show details</button>
 
           <div class="details" id="d9">
-            <strong>What you'll learn</strong>
-            <div class="topics">
-              <div class="chip">Motion & Force</div>
-              <div class="chip">Atoms & Molecules</div>
-              <div class="chip">Algebra basics</div>
-              <div class="chip">Experiments & Lab skills</div>
+            <strong>Subjects & Chapters (Class 9)</strong>
+
+            <div class="subjects">
+              <details class="subject-details" open>
+                <summary class="subject-toggle"><strong>Physics</strong> — Click to view chapters</summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Motion in a Straight Line</div>
+                    <div class="chapter">Force and Laws of Motion</div>
+                    <div class="chapter">Gravitation</div>
+                    <div class="chapter">Work and Energy</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Chemistry</strong> — Click to view chapters</summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Matter in Our Surroundings</div>
+                    <div class="chapter">Is Matter Around Us Pure?</div>
+                    <div class="chapter">Atoms and Molecules</div>
+                    <div class="chapter">Structure of the Atom</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Mathematics</strong> — Click to view chapters</summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Number Systems</div>
+                    <div class="chapter">Polynomials</div>
+                    <div class="chapter">Coordinate Geometry</div>
+                    <div class="chapter">Introduction to Euclid's Geometry</div>
+                  </div>
+                </div>
+              </details>
             </div>
 
-            <div class="subrow">
-              <div class="info-block">
-                <strong>Weekly plan</strong>
-                <div style="margin-top:8px">3 classes/week · 1.5 hrs · Concept + practice</div>
-              </div>
-              <div class="info-block">
-                <strong>Assessment</strong>
-                <div style="margin-top:8px">Weekly quizzes + monthly mock</div>
-              </div>
-            </div>
-
-            <div class="faq">
-              <details><summary>Sample lesson: Motion in a straight line</summary>
-                <p style="margin:8px 0 0">Concept demo, step-by-step derivations, 5 practice problems and a quick worksheet to take home.</p>
-              </details>
-              <details><summary>Fees & schedule</summary>
-                <p style="margin:8px 0 0">₹800 per subject/month. Evening & weekend batches available.</p>
-              </details>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="cta" data-sample="9">Open sample lesson</button>
+              <a class="cta" href="#contact">Enroll Class 9</a>
             </div>
 
           </div>
@@ -122,25 +145,51 @@
           <button class="toggle-btn" data-target="d10">Show details</button>
 
           <div class="details" id="d10">
-            <strong>What you'll learn</strong>
-            <div class="topics">
-              <div class="chip">Heat & Thermodynamics</div>
-              <div class="chip">Chemical reactions</div>
-              <div class="chip">Coordinate geometry</div>
-              <div class="chip">Exam technique</div>
-            </div>
-            <div class="subrow">
-              <div class="info-block"><strong>Weekly plan</strong><div style="margin-top:8px">4 classes/week · 2 hrs · Past-paper sessions</div></div>
-              <div class="info-block"><strong>Assessment</strong><div style="margin-top:8px">Sectional tests + timed full-syllabus mocks</div></div>
+            <strong>Subjects & Chapters (Class 10)</strong>
+            <div class="subjects">
+              <details class="subject-details" open>
+                <summary class="subject-toggle"><strong>Physics</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Light — Reflection & Refraction</div>
+                    <div class="chapter">Electricity</div>
+                    <div class="chapter">Magnetic Effects of Current</div>
+                    <div class="chapter">Sources of Energy</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Chemistry</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Chemical Reactions & Equations</div>
+                    <div class="chapter">Acids, Bases & Salts</div>
+                    <div class="chapter">Metals & Non-metals</div>
+                    <div class="chapter">Carbon Compounds</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Mathematics</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Real Numbers</div>
+                    <div class="chapter">Triangles</div>
+                    <div class="chapter">Circles</div>
+                    <div class="chapter">Statistics</div>
+                  </div>
+                </div>
+              </details>
             </div>
 
-            <div class="faq">
-              <details><summary>Sample lesson: Heat & Temperature</summary>
-                <p style="margin:8px 0 0">Concept demo, NCERT-style practice questions, and solved board questions from previous years.</p>
-              </details>
-              <details><summary>Fees & schedule</summary>
-                <p style="margin:8px 0 0">₹1000 per subject/month. Weekend crash courses before boards available.</p>
-              </details>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="cta" data-sample="10">Open sample lesson</button>
+              <a class="cta" href="#contact">Enroll Class 10</a>
             </div>
 
           </div>
@@ -154,25 +203,51 @@
           <button class="toggle-btn" data-target="d11">Show details</button>
 
           <div class="details" id="d11">
-            <strong>What you'll learn</strong>
-            <div class="topics">
-              <div class="chip">Kinematics & Dynamics</div>
-              <div class="chip">Atomic structure</div>
-              <div class="chip">Trigonometry & Calculus intro</div>
-              <div class="chip">Lab techniques</div>
-            </div>
-            <div class="subrow">
-              <div class="info-block"><strong>Weekly plan</strong><div style="margin-top:8px">5 classes/week · 2 hrs · Problem-solving focus</div></div>
-              <div class="info-block"><strong>Assessment</strong><div style="margin-top:8px">Topic tests + topic-wise worksheets</div></div>
+            <strong>Subjects & Chapters (Class 11)</strong>
+            <div class="subjects">
+              <details class="subject-details" open>
+                <summary class="subject-toggle"><strong>Physics</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Kinematics</div>
+                    <div class="chapter">Laws of Motion</div>
+                    <div class="chapter">Work, Energy & Power</div>
+                    <div class="chapter">Rotational Motion</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Chemistry</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Some Basic Concepts of Chemistry</div>
+                    <div class="chapter">Structure of Atom</div>
+                    <div class="chapter">Classification of Elements</div>
+                    <div class="chapter">Chemical Bonding</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Mathematics</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Sets & Functions</div>
+                    <div class="chapter">Trigonometry</div>
+                    <div class="chapter">Sequences & Series</div>
+                    <div class="chapter">Limits & Derivatives (Intro)</div>
+                  </div>
+                </div>
+              </details>
             </div>
 
-            <div class="faq">
-              <details><summary>Sample lesson: Laws of Motion</summary>
-                <p style="margin:8px 0 0">In-depth derivations, solved PYQs and a set of 8 MCQ + 4 numericals for practice.</p>
-              </details>
-              <details><summary>Fees & schedule</summary>
-                <p style="margin:8px 0 0">₹1,400 per subject/month. Doubt classes thrice weekly included.</p>
-              </details>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="cta" data-sample="11">Open sample lesson</button>
+              <a class="cta" href="#contact">Enroll Class 11</a>
             </div>
 
           </div>
@@ -186,24 +261,45 @@
           <button class="toggle-btn" data-target="d12">Show details</button>
 
           <div class="details" id="d12">
-            <strong>What you'll learn</strong>
-            <div class="topics">
-              <div class="chip">Electrostatics & Current</div>
-              <div class="chip">Organic reaction mechanisms</div>
-              <div class="chip">Advanced calculus</div>
-              <div class="chip">Exam strategy</div>
-            </div>
-            <div class="subrow">
-              <div class="info-block"><strong>Weekly plan</strong><div style="margin-top:8px">6 classes/week · 2 hrs · Mocks & revision</div></div>
-              <div class="info-block"><strong>Assessment</strong><div style="margin-top:8px">Full-syllabus mocks + analysis sessions</div></div>
-            </div>
-
-            <div class="faq">
-              <details><summary>Sample lesson: Electrostatics</summary>
-                <p style="margin:8px 0 0">Field diagrams, derivations, example problems and a timed practice sheet.</p>
+            <strong>Subjects & Chapters (Class 12)</strong>
+            <div class="subjects">
+              <details class="subject-details" open>
+                <summary class="subject-toggle"><strong>Physics</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Electrostatics</div>
+                    <div class="chapter">Current Electricity</div>
+                    <div class="chapter">Magnetism & Matter</div>
+                    <div class="chapter">Electromagnetic Induction</div>
+                  </div>
+                </div>
               </details>
-              <details><summary>Fees & schedule</summary>
-                <p style="margin:8px 0 0">₹1,800 per subject/month. Weekend doubt clinics and revision packs included.</p>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Chemistry</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Organic Chemistry: Some Basic Principles</div>
+                    <div class="chapter">Coordination Compounds</div>
+                    <div class="chapter">Surface Chemistry</div>
+                    <div class="chapter">p-Block Elements</div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="subject-details">
+                <summary class="subject-toggle"><strong>Mathematics</strong></summary>
+                <div class="subject">
+                  <h4>Chapters</h4>
+                  <div class="chapters">
+                    <div class="chapter">Relations & Functions</div>
+                    <div class="chapter">Continuity & Differentiability</div>
+                    <div class="chapter">Integrals</div>
+                    <div class="chapter">Applications of Integrals</div>
+                  </div>
+                </div>
               </details>
             </div>
 
@@ -224,7 +320,6 @@
           <div class="details" id="dS">
             <strong>Support</strong>
             <div class="topics"><div class="chip">Daily doubt sessions</div><div class="chip">1:1 mentoring</div><div class="chip">Recorded solutions</div></div>
-            <div class="subrow"><div class="info-block"><strong>When</strong><div style="margin-top:8px">Daily 6–7pm</div></div><div class="info-block"><strong>How</strong><div style="margin-top:8px">Zoom & WhatsApp support</div></div></div>
           </div>
         </article>
 
@@ -236,7 +331,6 @@
           <div class="details" id="dP">
             <strong>What we do</strong>
             <div class="topics"><div class="chip">Past paper drills</div><div class="chip">Timed mocks</div><div class="chip">Error analysis</div></div>
-            <div class="subrow"><div class="info-block"><strong>Format</strong><div style="margin-top:8px">Sectional & full tests</div></div><div class="info-block"><strong>Reports</strong><div style="margin-top:8px">Personalized feedback</div></div></div>
           </div>
         </article>
 
@@ -276,7 +370,7 @@
     <div class="panel">
       <div class="close-x" id="closeModal">✕</div>
       <h3 id="modalTitle">Sample Lesson</h3>
-      <p id="modalBody">Lesson content will appear here.</p>
+      <div id="modalBody">Lesson content will appear here.</div>
     </div>
   </div>
 
@@ -309,7 +403,20 @@
       // Modal sample lesson
       const modal = document.getElementById('modal'); const modalTitle = document.getElementById('modalTitle'); const modalBody = document.getElementById('modalBody');
       document.querySelectorAll('[data-sample]').forEach(btn=> btn.addEventListener('click', ()=>{
-        const cls = btn.dataset.sample; modalTitle.textContent = 'Sample lesson — Class ' + cls; modalBody.innerHTML = '<strong>Topic:</strong> Electrostatics overview<br><br><ol><li>Concept & visualization</li><li>Derivation walkthrough</li><li>2 solved examples</li><li>Practice sheet (timed)</li></ol>'; modal.classList.add('open');
+        const cls = btn.dataset.sample;
+        modalTitle.textContent = 'Sample lesson — Class ' + cls;
+
+        // Example lesson content per class (you can replace with your real lesson)
+        const lessons = {
+          '9': {topic:'Motion in a Straight Line', bullets:['Displacement, speed, velocity','Uniform & non-uniform motion','Graphs of motion','5 practice problems']},
+          '10':{topic:'Heat & Temperature', bullets:['Zeroth law, temperature scales','Heat transfer modes','Specific heat & calorimetry','NCERT practice + PYQs']},
+          '11':{topic:"Laws of Motion", bullets:['Newton\'s laws','Friction & applications','Tension problems','8 numericals + MCQs']},
+          '12':{topic:'Electrostatics', bullets:['Coulomb\'s law','Electric field & potential','Field lines & Gauss (intro)','Timed practice sheet']}
+        };
+
+        const lesson = lessons[cls] || {topic:'Sample topic', bullets:['Short overview','Examples','Practice']};
+        modalBody.innerHTML = `<strong>Topic:</strong> ${lesson.topic}<br><br><ul>${lesson.bullets.map(b=>'<li>'+b+'</li>').join('')}</ul>`;
+        modal.classList.add('open');
       }));
       document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('open'));
       modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('open'); });
