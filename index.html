@@ -283,8 +283,8 @@
           });
         } else {
           const subject = encodeURIComponent('Contact from website');
-          const body = Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message};
-          window.location.href = mailto:nirupam@example.com?subject=${subject}&body=${body};
+          const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+          window.location.href = `mailto:nirupam@example.com?subject=${subject}&body=${body}`;
         }
       });
     })();
