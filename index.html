@@ -1,536 +1,1107 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nirupam's Coaching — Classes 9 to 12 (Subjects & Chapters)</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Nirupam's Coaching — Premium PCM for Classes 9–12</title>
   <style>
-    :root{--bg-1:#2b0f3a;--bg-2:#5b2fb6;--card:rgba(255,255,255,0.04);--accent:#ff7fbf;--muted:rgba(255,255,255,0.75);--glass-border:rgba(255,255,255,0.06);--card-radius:18px;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
-    body{margin:0;min-height:100vh;background:radial-gradient(1000px 600px at 10% 10%,#7240d1 0%,transparent 10%),linear-gradient(180deg,var(--bg-2),var(--bg-1));color:#fff}
-    nav{background:rgba(8,10,23,0.9);padding:18px 28px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:50}
-    nav .brand{font-weight:800;font-size:20px;color:var(--accent)}nav a{color:#e9e7ff;text-decoration:none;font-weight:700}
-    .container{max-width:1120px;margin:36px auto;padding:28px}
-    .hero{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.02));padding:40px;border-radius:26px;box-shadow:0 12px 30px rgba(0,0,0,0.4);border:1px solid var(--glass-border)}
-    .hero h1{font-size:48px;margin:0 0 6px;color:var(--accent);letter-spacing:1px}
-    .hero p.lead{color:var(--muted);margin:0 0 26px}
-    .filters{display:flex;gap:12px;margin-bottom:22px}
-    .pill{padding:10px 14px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;color:#fff;font-weight:700}
-    .pill.active{background:linear-gradient(90deg,#8a2be2,#b54bdc);box-shadow:0 8px 24px rgba(133,46,197,0.25)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .card{background:var(--card);padding:26px;border-radius:18px;min-height:260px;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;border:1px solid rgba(255,255,255,0.03);opacity:0;transform:translateY(20px) scale(.98);transition:all 600ms cubic-bezier(.2,.9,.2,1)}
-    .card.active-reveal{opacity:1;transform:translateY(0) scale(1)}
-    .card .icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px;background:rgba(255,255,255,0.06)}
-    .card h3{margin:6px 0 8px}
-    .card p{color:rgba(255,255,255,0.85);line-height:1.5}
-    .cta{display:inline-block;margin-top:12px;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid rgba(255,255,255,0.06)}
-    .hero{opacity:0;transform:translateY(8px);transition:all 700ms cubic-bezier(.2,.9,.2,1)}.hero.visible{opacity:1;transform:translateY(0)}
-    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}.icon{animation:floaty 4s ease-in-out infinite}
-    .section-title{font-size:24px;margin:40px 0 18px}
-    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:36px}}@media (max-width:620px){.grid{grid-template-columns:1fr}.container{padding:16px}.hero{padding:20px}nav{padding:12px 16px}.hero h1{font-size:28px}}
-
-    /* expandable details */
-    .details{margin-top:16px;background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:14px;width:100%;max-width:520px;display:none;text-align:left;color:rgba(255,255,255,0.9)}
-    .details.open{display:block;animation:openDetail 420ms cubic-bezier(.2,.9,.2,1)}
-    @keyframes openDetail{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-    .topics{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
-    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;font-weight:700}
-    .subrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .info-block{flex:1;min-width:160px;background:rgba(0,0,0,0.03);padding:10px;border-radius:8px}
-    .toggle-btn{margin-top:10px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:#fff;cursor:pointer}
-
-    /* subjects & chapters */
-    .subjects{margin-top:12px}
-    .subject{margin-top:10px;border-radius:10px;padding:10px;background:rgba(255,255,255,0.02)}
-    .subject h4{margin:0 0 6px}
-    .chapters{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-    .chapter{padding:8px;border-radius:8px;background:rgba(255,255,255,0.03);font-size:14px}
-    summary.subject-toggle{cursor:pointer;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02)}
-    details.subject-details{margin-top:8px}
-
-    /* modal */
-    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:200;opacity:0;pointer-events:none;transition:opacity 220ms ease}
-    .modal.open{opacity:1;pointer-events:auto}
-    .modal .panel{background:linear-gradient(180deg,#2b143c,#40104f);padding:22px;border-radius:14px;max-width:780px;width:min(94%,780px);color:#fff}
-    .close-x{position:absolute;right:18px;top:18px;cursor:pointer;font-weight:800}
-
-    /* PDF full-screen interface */
-    .pdf-modal{position:fixed;inset:0;display:none;flex-direction:column;z-index:400;background:linear-gradient(180deg,rgba(8,8,20,0.9),rgba(8,8,20,0.95));}
-    .pdf-modal.open{display:flex}
-    .pdf-toolbar{display:flex;gap:10px;padding:12px 16px;align-items:center;background:rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.03)}
-    .pdf-container{flex:1;padding:12px}
-    .pdf-container iframe{width:100%;height:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.04)}
-
+    :root{
+      --primary:#1f1f3d;
+      --accent:#6366f1;
+      --text:#1a1a2e;
+      --text-light:#64748b;
+      --text-muted:#9ca3af;
+      --bg-white:#fff;
+      --bg-light:#f8fafc;
+      --bg-lighter:#fafbfc;
+      --border:#e2e8f0;
+      --shadow-sm:0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md:0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg:0 8px 24px rgba(0,0,0,0.1);
+      font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif
+    }
+    * { box-sizing:border-box }
+    html,body { margin:0; padding:0; background:var(--bg-white); color:var(--text); line-height:1.7 }
+    
+    /* ===== NAVBAR ===== */
+    nav {
+      background:var(--bg-white);
+      border-bottom:1px solid var(--border);
+      padding:1.2rem 2rem;
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:none;
+      transition:box-shadow 200ms
+    }
+    nav.scrolled { box-shadow:var(--shadow-md) }
+    .nav-wrapper {
+      max-width:1280px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:3rem
+    }
+    .nav-brand {
+      font-weight:800;
+      font-size:22px;
+      color:var(--accent);
+      text-decoration:none;
+      letter-spacing:-0.5px
+    }
+    .nav-menu {
+      display:flex;
+      align-items:center;
+      gap:3rem;
+      margin:0;
+      list-style:none
+    }
+    .nav-menu a {
+      color:var(--text-light);
+      text-decoration:none;
+      font-weight:500;
+      transition:color 200ms;
+      font-size:0.95rem;
+      letter-spacing:-0.2px
+    }
+    .nav-menu a:hover { color:var(--accent) }
+    .nav-cta {
+      display:flex;
+      gap:1.2rem;
+      align-items:center;
+      flex-shrink:0
+    }
+    .btn-enroll {
+      background:var(--accent);
+      color:#fff;
+      padding:0.7rem 1.8rem;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition:all 200ms;
+      border:none;
+      cursor:pointer;
+      font-size:0.95rem;
+      letter-spacing:-0.2px
+    }
+    .btn-enroll:hover {
+      background:#5558e3;
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-lg)
+    }
+    .whatsapp-icon {
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#25d366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:1.3rem;
+      text-decoration:none;
+      transition:all 200ms;
+      flex-shrink:0
+    }
+    .whatsapp-icon:hover {
+      transform:scale(1.08);
+      box-shadow:0 4px 12px rgba(37,211,102,0.25)
+    }
+    
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background:linear-gradient(135deg,var(--accent) 0%,#7c3aed 100%);
+      padding:8rem 2rem;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center
+    }
+    .hero::before {
+      content:'';
+      position:absolute;
+      top:-40%;
+      right:-5%;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.06);
+      filter:blur(80px);
+      pointer-events:none
+    }
+    .hero-wrapper {
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:4rem;
+      align-items:center;
+      position:relative;
+      z-index:1
+    }
+    .hero-content h1 {
+      font-size:4.2rem;
+      font-weight:900;
+      margin:0 0 1.5rem;
+      line-height:1.05;
+      letter-spacing:-1.2px
+    }
+    .hero-content p {
+      font-size:1.15rem;
+      margin:0 0 2.8rem;
+      opacity:0.95;
+      max-width:580px;
+      line-height:1.8;
+      letter-spacing:-0.2px;
+      font-weight:500
+    }
+    .hero-ctas {
+      display:flex;
+      gap:1.5rem;
+      flex-wrap:wrap;
+      margin-top:3rem
+    }
+    .btn-primary {
+      display:inline-block;
+      background:#fff;
+      color:var(--accent);
+      padding:1.1rem 2.4rem;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      transition:all 200ms;
+      cursor:pointer;
+      border:none;
+      font-size:1rem;
+      letter-spacing:-0.2px;
+      box-shadow:var(--shadow-lg)
+    }
+    .btn-primary:hover {
+      transform:translateY(-2px);
+      box-shadow:0 12px 30px rgba(0,0,0,0.2);
+      background:#f0f0ff
+    }
+    .btn-secondary {
+      display:inline-block;
+      background:rgba(255,255,255,0.15);
+      color:#fff;
+      padding:1.1rem 2.4rem;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      transition:all 200ms;
+      cursor:pointer;
+      border:2px solid rgba(255,255,255,0.3);
+      font-size:1rem;
+      letter-spacing:-0.2px
+    }
+    .btn-secondary:hover {
+      background:rgba(255,255,255,0.2);
+      border-color:#fff;
+      transform:translateY(-2px)
+    }
+    .hero-visual {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:8.5rem;
+      opacity:0.9
+    }
+    
+    /* ===== TRUST SECTION ===== */
+    .trust-section {
+      background:var(--bg-white);
+      padding:7rem 2rem;
+      border-bottom:1px solid var(--border)
+    }
+    .trust-wrapper { max-width:1280px; margin:0 auto }
+    .trust-intro {
+      text-align:center;
+      margin-bottom:4.5rem
+    }
+    .trust-intro h2 {
+      font-size:2.6rem;
+      font-weight:800;
+      margin:0 0 1rem;
+      letter-spacing:-0.5px
+    }
+    .trust-intro p {
+      color:var(--text-light);
+      font-size:1.1rem;
+      max-width:640px;
+      margin:0 auto;
+      line-height:1.75
+    }
+    .trust-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2rem;
+      padding:0 1rem
+    }
+    .trust-card {
+      background:var(--bg-light);
+      padding:3.2rem 2.4rem;
+      border-radius:12px;
+      box-shadow:var(--shadow-sm);
+      text-align:center;
+      transition:all 200ms;
+      border:1px solid var(--border)
+    }
+    .trust-card:hover {
+      box-shadow:var(--shadow-md);
+      border-color:var(--accent)
+    }
+    .trust-card-number {
+      font-size:3.2rem;
+      font-weight:900;
+      color:var(--accent);
+      letter-spacing:-1.2px
+    }
+    .trust-card-label {
+      color:var(--text-light);
+      font-size:0.95rem;
+      font-weight:600;
+      margin-top:1rem;
+      line-height:1.6
+    }
+    
+    /* ===== LEARNING SYSTEM SECTION ===== */
+    .learning-system {
+      padding:7rem 2rem;
+      background:var(--bg-lighter);
+      border-bottom:1px solid var(--border)
+    }
+    .learning-system-wrapper { max-width:1280px; margin:0 auto }
+    .learning-system h2 {
+      font-size:2.6rem;
+      font-weight:800;
+      text-align:center;
+      margin:0 0 1rem;
+      letter-spacing:-0.5px
+    }
+    .learning-system-subtitle {
+      text-align:center;
+      color:var(--text-light);
+      font-size:1.08rem;
+      margin:0 0 4.5rem;
+      max-width:640px;
+      margin-left:auto;
+      margin-right:auto;
+      line-height:1.75;
+      font-weight:500
+    }
+    .learning-steps {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:2.5rem
+    }
+    .step-card {
+      text-align:center;
+      padding:3.2rem 2.8rem;
+      background:var(--bg-white);
+      border-radius:12px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow-sm);
+      transition:all 200ms
+    }
+    .step-card:hover {
+      box-shadow:var(--shadow-md);
+      border-color:var(--accent)
+    }
+    .step-number {
+      font-size:3.6rem;
+      font-weight:900;
+      color:var(--accent);
+      margin-bottom:1.5rem;
+      letter-spacing:-1.2px
+    }
+    .step-card h3 {
+      font-size:1.3rem;
+      font-weight:800;
+      margin:0 0 1.2rem;
+      color:var(--text)
+    }
+    .step-card p {
+      color:var(--text-light);
+      font-size:0.95rem;
+      margin:0;
+      line-height:1.65
+    }
+    
+    /* ===== CLASSES SECTION ===== */
+    .classes-section {
+      padding:7rem 2rem;
+      background:var(--bg-white);
+      border-bottom:1px solid var(--border)
+    }
+    .section-header {
+      text-align:center;
+      margin-bottom:4.5rem
+    }
+    .section-header h2 {
+      font-size:2.6rem;
+      font-weight:800;
+      margin:0 0 1rem;
+      letter-spacing:-0.5px
+    }
+    .section-header p {
+      color:var(--text-light);
+      font-size:1.08rem;
+      max-width:680px;
+      margin:0 auto;
+      line-height:1.75;
+      font-weight:500
+    }
+    .classes-grid {
+      max-width:1280px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+      gap:2.8rem
+    }
+    .class-card {
+      background:var(--bg-light);
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      transition:all 200ms;
+      cursor:pointer;
+      box-shadow:var(--shadow-sm)
+    }
+    .class-card:hover {
+      border-color:var(--accent);
+      box-shadow:var(--shadow-lg);
+      transform:translateY(-4px)
+    }
+    .class-card-header {
+      background:var(--bg-lighter);
+      padding:3.2rem 2rem;
+      text-align:center;
+      border-bottom:1px solid var(--border)
+    }
+    .class-number {
+      font-size:3.8rem;
+      font-weight:900;
+      color:var(--accent);
+      letter-spacing:-1.3px
+    }
+    .class-title {
+      font-size:1.25rem;
+      font-weight:800;
+      color:var(--text);
+      margin-top:1rem;
+      letter-spacing:-0.4px
+    }
+    .class-card-content {
+      padding:3rem
+    }
+    .class-tagline {
+      color:var(--text);
+      font-size:0.98rem;
+      margin-bottom:1.8rem;
+      line-height:1.75;
+      font-weight:500
+    }
+    .class-subjects {
+      display:flex;
+      gap:0.6rem;
+      flex-wrap:wrap;
+      margin-bottom:1.8rem
+    }
+    .subject-tag {
+      display:inline-block;
+      background:var(--bg-lighter);
+      color:var(--accent);
+      padding:0.45rem 1rem;
+      border-radius:24px;
+      font-size:0.85rem;
+      font-weight:600;
+      border:1px solid var(--accent);
+      letter-spacing:-0.1px
+    }
+    .btn-view {
+      display:block;
+      text-align:center;
+      width:100%;
+      background:var(--accent);
+      color:#fff;
+      padding:1rem 1rem;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      transition:all 200ms;
+      border:none;
+      cursor:pointer;
+      margin-top:auto;
+      letter-spacing:-0.2px;
+      box-shadow:var(--shadow-sm)
+    }
+    .btn-view:hover {
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-md);
+      background:#5558e3
+    }
+    
+    /* ===== SUBJECTS SECTION ===== */
+    .subjects-section {
+      background:var(--bg-lighter);
+      padding:7rem 2rem;
+      border-bottom:1px solid var(--border)
+    }
+    .subjects-wrapper { max-width:1280px; margin:0 auto }
+    .subjects-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:3.5rem;
+      margin-top:3.5rem
+    }
+    .subject-card {
+      background:var(--bg-white);
+      padding:3.5rem;
+      border-radius:12px;
+      box-shadow:var(--shadow-sm);
+      border-left:5px solid var(--accent);
+      transition:all 200ms;
+      border:1px solid var(--border);
+      border-left:5px solid var(--accent)
+    }
+    .subject-card:nth-child(2) { border-left-color:#ec4899 }
+    .subject-card:nth-child(3) { border-left-color:#3b82f6 }
+    .subject-card:hover {
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-md)
+    }
+    .subject-icon { font-size:3.2rem; margin-bottom:1.8rem; display:block }
+    .subject-card h3 {
+      font-size:1.45rem;
+      font-weight:700;
+      margin:0 0 1.2rem;
+      letter-spacing:-0.4px
+    }
+    .subject-card p {
+      color:var(--text-light);
+      margin:0 0 2rem;
+      line-height:1.78;
+      font-size:0.98rem;
+      font-weight:500
+    }
+    .subject-features {
+      list-style:none;
+      padding:0;
+      margin:0
+    }
+    .subject-features li {
+      padding:0.75rem 0;
+      color:var(--text-light);
+      display:flex;
+      align-items:flex-start;
+      font-size:0.95rem;
+      line-height:1.6;
+      font-weight:500
+    }
+    .subject-features li:before {
+      content:'✓';
+      margin-right:0.8rem;
+      color:var(--accent);
+      font-weight:700;
+      font-size:1rem;
+      flex-shrink:0
+    }
+    
+    /* ===== WHY US SECTION ===== */
+    .whyus-section {
+      padding:7rem 2rem;
+      background:var(--bg-white);
+      border-bottom:1px solid var(--border)
+    }
+    .whyus-wrapper { max-width:1280px; margin:0 auto }
+    .whyus-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      gap:2.8rem;
+      margin-top:3.5rem
+    }
+    .whyus-card {
+      background:var(--bg-light);
+      padding:3.2rem;
+      border-radius:12px;
+      box-shadow:var(--shadow-sm);
+      transition:all 200ms;
+      border:1px solid var(--border)
+    }
+    .whyus-card:hover {
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-md)
+    }
+    .whyus-icon { font-size:2.6rem; margin-bottom:1.5rem; display:block }
+    .whyus-card h3 {
+      font-size:1.15rem;
+      font-weight:800;
+      margin:0 0 1rem;
+      letter-spacing:-0.3px
+    }
+    .whyus-card p {
+      color:var(--text-light);
+      margin:0;
+      font-size:0.95rem;
+      line-height:1.7;
+      font-weight:500
+    }
+    
+    /* ===== TESTIMONIALS SECTION ===== */
+    .testimonials-section {
+      background:var(--bg-lighter);
+      padding:7rem 2rem;
+      border-bottom:1px solid var(--border)
+    }
+    .testimonials-wrapper { max-width:1280px; margin:0 auto }
+    .testimonials-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+      gap:2.8rem;
+      margin-top:3.5rem
+    }
+    .testimonial-card {
+      background:var(--bg-white);
+      padding:3.2rem;
+      border-radius:12px;
+      box-shadow:var(--shadow-sm);
+      border:1px solid var(--border);
+      transition:all 200ms
+    }
+    .testimonial-card:hover {
+      box-shadow:var(--shadow-md)
+    }
+    .stars {
+      color:#fbbf24;
+      font-size:1.1rem;
+      margin-bottom:1.5rem;
+      letter-spacing:1px
+    }
+    .testimonial-text {
+      color:var(--text);
+      font-size:0.98rem;
+      margin-bottom:2rem;
+      line-height:1.8;
+      font-weight:500
+    }
+    .testimonial-author {
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:0.5rem;
+      letter-spacing:-0.3px;
+      font-size:0.98rem
+    }
+    .testimonial-role {
+      color:var(--text-light);
+      font-size:0.85rem
+    }
+    
+    /* ===== FINAL CTA SECTION ===== */
+    .final-cta {
+      background:linear-gradient(135deg,var(--accent) 0%,#7c3aed 100%);
+      padding:8.5rem 2rem;
+      text-align:center;
+      color:#fff;
+      position:relative;
+      overflow:hidden
+    }
+    .final-cta::before {
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 20% 50%,rgba(255,255,255,0.06) 0%,transparent 50%),
+                  radial-gradient(circle at 80% 80%,rgba(255,255,255,0.04) 0%,transparent 50%);
+      pointer-events:none
+    }
+    .final-cta-wrapper {
+      max-width:900px;
+      margin:0 auto;
+      position:relative;
+      z-index:1
+    }
+    .final-cta h2 {
+      font-size:3.2rem;
+      font-weight:800;
+      margin:0 0 1.5rem;
+      letter-spacing:-0.7px
+    }
+    .final-cta p {
+      font-size:1.2rem;
+      margin:0 0 2.8rem;
+      opacity:0.96;
+      line-height:1.85;
+      letter-spacing:-0.3px;
+      font-weight:500
+    }
+    .cta-buttons {
+      display:flex;
+      gap:1.5rem;
+      justify-content:center;
+      flex-wrap:wrap
+    }
+    .btn-dark {
+      background:#1a1a2e;
+      color:#fff;
+      padding:1.1rem 2.6rem;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:800;
+      transition:all 200ms;
+      cursor:pointer;
+      border:none;
+      font-size:1rem;
+      letter-spacing:-0.3px
+    }
+    .btn-dark:hover {
+      background:#0f0f1a;
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.2)
+    }
+    
+    /* ===== FOOTER ===== */
+    footer {
+      background:var(--primary);
+      color:#fff;
+      padding:4.5rem 2rem 2rem;
+      margin-top:0
+    }
+    .footer-wrapper { max-width:1280px; margin:0 auto }
+    .footer-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:3rem;
+      margin-bottom:3rem
+    }
+    .footer-col h4 {
+      font-weight:700;
+      margin:0 0 1.2rem;
+      font-size:0.95rem;
+      letter-spacing:-0.2px
+    }
+    .footer-col p {
+      color:rgba(255,255,255,0.75);
+      font-size:0.9rem;
+      margin:0;
+      line-height:1.65
+    }
+    .footer-col a {
+      color:rgba(255,255,255,0.75);
+      text-decoration:none;
+      display:block;
+      margin:0.7rem 0;
+      transition:color 200ms;
+      font-size:0.9rem
+    }
+    .footer-col a:hover { color:#fff }
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,0.1);
+      padding-top:2.5rem;
+      text-align:center;
+      color:rgba(255,255,255,0.6);
+      font-size:0.85rem
+    }
+    
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:768px) {
+      .hero { min-height:auto; padding:5.5rem 1.5rem }
+      .hero-wrapper { grid-template-columns:1fr; gap:2.5rem }
+      .hero-content h1 { font-size:2.8rem; line-height:1.1 }
+      .hero-content p { font-size:1rem; margin:0 0 2rem }
+      .hero-visual { font-size:5.5rem }
+      .hero-ctas { gap:1rem }
+      .btn-primary,.btn-secondary { padding:0.85rem 1.8rem; font-size:0.95rem }
+      .nav-menu { gap:1.5rem; font-size:0.9rem }
+      .classes-grid { grid-template-columns:repeat(2,1fr) }
+      .subjects-grid { grid-template-columns:1fr }
+      .whyus-grid { grid-template-columns:1fr }
+      .testimonials-grid { grid-template-columns:1fr }
+      .cta-buttons { flex-direction:column; align-items:center }
+      .learning-steps { grid-template-columns:repeat(2,1fr) }
+      .section-header h2 { font-size:2.4rem }
+      .trust-section,.learning-system,.classes-section,.subjects-section,.whyus-section,.testimonials-section {
+        padding:5.5rem 1.5rem
+      }
+      .final-cta { padding:5.5rem 1.5rem }
+      .final-cta h2 { font-size:2.6rem }
+    }
+    @media (max-width:640px) {
+      nav { padding:0.9rem 1rem }
+      .nav-wrapper { gap:0.8rem }
+      .nav-menu { display:none }
+      .nav-brand { font-size:20px }
+      .hero { padding:4rem 1rem }
+      .hero-content h1 { font-size:2rem }
+      .hero-content p { font-size:0.95rem }
+      .hero-visual { font-size:4rem }
+      .btn-primary,.btn-secondary { width:100%; padding:0.9rem 1rem; font-size:0.9rem }
+      .classes-grid { grid-template-columns:1fr }
+      .section-header h2 { font-size:2rem }
+      .trust-grid { grid-template-columns:repeat(2,1fr) }
+      .learning-steps { grid-template-columns:1fr }
+      .subjects-grid { grid-template-columns:1fr }
+      .trust-section,.learning-system,.classes-section,.subjects-section,.whyus-section,.testimonials-section {
+        padding:4rem 1rem
+      }
+      .final-cta { padding:4rem 1rem }
+      .final-cta h2 { font-size:2rem }
+      .final-cta p { font-size:1rem }
+      .cta-buttons { gap:1rem }
+      .btn-dark { padding:0.9rem 1.5rem; font-size:0.9rem }
+      .footer-grid { gap:2rem }
+    }
+  </style>
   </style>
 </head>
 <body>
+  <!-- NAVBAR -->
   <nav>
-    <div class="brand">Nirupam's Coaching</div>
-    <div style="flex:1"></div>
-    <a href="#classes">Classes</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-wrapper">
+      <a href="#" class="nav-brand">Nirupam's Coaching</a>
+      <ul class="nav-menu">
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <button onclick="enrollNow()" class="btn-enroll">Enroll Now</button>
+        <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-icon">💬</a>
+      </div>
+    </div>
   </nav>
 
-  <main class="container">
-    <section class="hero" id="hero">
-      <h1>Nirupam's Coaching</h1>
-      <p class="lead">Physics · Chemistry · Maths — Concept clarity, exam strategies, and top results for Class 9 → 12.</p>
-
-      <div class="filters" id="filterPills">
-        <button class="pill active" data-filter="all">All Classes</button>
-        <button class="pill" data-filter="9">Class 9</button>
-        <button class="pill" data-filter="10">Class 10</button>
-        <button class="pill" data-filter="11">Class 11</button>
-        <button class="pill" data-filter="12">Class 12</button>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1>India's Trusted PCM Coaching for Classes 9–12</h1>
+        <p>Concept-driven Physics, Chemistry & Mathematics for CBSE boards and competitive exam preparation. Master fundamentals with expert guidance.</p>
+        <div class="hero-ctas">
+          <button onclick="exploreCourses()" class="btn-primary">Explore Courses</button>
+          <button onclick="bookDemo()" class="btn-secondary">📅 Book Free Demo</button>
+        </div>
       </div>
-
-      <div class="grid" id="cardsGrid">
-
-        <!-- Class 9 card -->
-        <article class="card reveal" data-classes="9">
-          <div class="icon">9</div>
-          <h3>Class 9 — Foundation</h3>
-          <p>Strong foundations in physics, chemistry & maths. Weekly practice, short tests & concept maps to build understanding.</p>
-          <button class="toggle-btn" data-target="d9">Show details</button>
-
-          <div class="details" id="d9">
-            <strong>Subjects & Chapters (Class 9)</strong>
-
-            <div class="subjects">
-              <details class="subject-details" open>
-                <summary class="subject-toggle"><strong>Physics</strong> — Click to view chapters</summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Motion in a Straight Line</div>
-                    <div class="chapter">Force and Laws of Motion</div>
-                    <div class="chapter">Gravitation</div>
-                    <div class="chapter">Work and Energy</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Chemistry</strong> — Click to view chapters</summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Matter in Our Surroundings</div>
-                    <div class="chapter">Is Matter Around Us Pure?</div>
-                    <div class="chapter">Atoms and Molecules</div>
-                    <div class="chapter">Structure of the Atom</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Mathematics</strong> — Click to view chapters</summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Number Systems</div>
-                    <div class="chapter">Polynomials</div>
-                    <div class="chapter">Coordinate Geometry</div>
-                    <div class="chapter">Introduction to Euclid's Geometry</div>
-                  </div>
-                </div>
-              </details>
-            </div>
-
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="cta" data-sample="9">Open sample lesson</button>
-              <a class="cta" href="#contact">Enroll Class 9</a>
-            </div>
-
-          </div>
-        </article>
-
-        <!-- Class 10 card -->
-        <article class="card reveal" data-classes="10">
-          <div class="icon">10</div>
-          <h3>Class 10 — Board Ready</h3>
-          <p>Board-focused syllabus coverage with past paper practice, exam strategies, and time-management drills for board success.</p>
-          <button class="toggle-btn" data-target="d10">Show details</button>
-
-          <div class="details" id="d10">
-            <strong>Subjects & Chapters (Class 10)</strong>
-            <div class="subjects">
-              <details class="subject-details" open>
-                <summary class="subject-toggle"><strong>Physics</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Light — Reflection & Refraction</div>
-                    <div class="chapter">Electricity</div>
-                    <div class="chapter">Magnetic Effects of Current</div>
-                    <div class="chapter">Sources of Energy</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Chemistry</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Chemical Reactions & Equations</div>
-                    <div class="chapter">Acids, Bases & Salts</div>
-                    <div class="chapter">Metals & Non-metals</div>
-                    <div class="chapter">Carbon Compounds</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Mathematics</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Real Numbers</div>
-                    <div class="chapter">Triangles</div>
-                    <div class="chapter">Circles</div>
-                    <div class="chapter">Statistics</div>
-                  </div>
-                </div>
-              </details>
-            </div>
-
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="cta" data-sample="10">Open sample lesson</button>
-              <a class="cta" href="#contact">Enroll Class 10</a>
-            </div>
-
-          </div>
-        </article>
-
-        <!-- Class 11 card -->
-        <article class="card reveal" data-classes="11">
-          <div class="icon">11</div>
-          <h3>Class 11 — Concept Builder</h3>
-          <p>Detailed theory + numerical problem solving, conceptual labs, and NEET/JEE-friendly approaches to strengthen basics.</p>
-          <button class="toggle-btn" data-target="d11">Show details</button>
-
-          <div class="details" id="d11">
-            <strong>Subjects & Chapters (Class 11)</strong>
-            <div class="subjects">
-              <details class="subject-details" open>
-                <summary class="subject-toggle"><strong>Physics</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Kinematics
-                      <div style='margin-top:6px;font-size:13px;line-height:1.45;'>
-                        <!-- FOLDER-LIKE BEHAVIOR: show PDF when opened -->
-                        <h4 style="margin:6px 0 8px;color:#ffd1ff">Kinematics — Notes (PDF)</h4>
-                        <p>Click <strong>Open folder</strong> to view the original, complete Kinematics PDF (full notes and derivations). The 30 practice questions are excluded from this folder and will be available separately in the Practice section.</p>
-
-                        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
-                          <button class="cta" id="openFolderBtn">Open folder</button>
-                          <a class="cta" id="downloadPdf" href="kinematics.pdf" download>Download PDF</a>
-                        </div>
-
-                        <!-- FULL-SCREEN PDF INTERFACE (opens as overlay modal) -->
-                        <div id="pdfModal" class="pdf-modal" aria-hidden="true">
-                          <div class="pdf-toolbar">
-                            <button id="pdfClose" class="toggle-btn">Close</button>
-                            <button id="pdfDownload" class="toggle-btn">Download</button>
-                            <button id="pdfOpenNew" class="toggle-btn">Open in new tab</button>
-                          </div>
-                          <div class="pdf-container">
-                            <iframe id="pdfFrame" src="" title="Kinematics PDF" frameborder="0"></iframe>
-                            <div id="pdfFallback" style="display:none;padding:20px;text-align:center;color:#fff;">
-                              <p style="font-size:18px;margin-bottom:10px;">📄 PDF Viewer</p>
-                              <p>The PDF is ready to display. If it doesn't appear, you can:</p>
-                              <button id="pdfDownloadFallback" class="cta" style="margin-top:10px;">Download PDF</button>
-                              <p style="margin-top:10px;font-size:12px;color:rgba(255,255,255,0.7);">Or try opening in a new tab using the toolbar button above.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <p style="margin-top:10px;color:rgba(255,255,255,0.85)"><em>Notes summary (theory only) is shown below for quick reference; click the folder to open the full PDF with derivations and diagrams.</em></p>
-
-                        <!-- condensed summary (kept for quick view) -->
-                        <h4 style="margin:10px 0 6px;color:#ffd1ff">Module 1 — Introduction & Basic Concepts</h4>
-                        <p><strong>What is Kinematics?</strong> The branch of mechanics that describes the motion of objects without considering the forces that cause the motion. Kinematics tells us <em>how</em> objects move (position, velocity, acceleration), not why.</p>
-
-                        <h4 style="margin:10px 0 6px;color:#ffd1ff">Frame of Reference & Sign Convention</h4>
-                        <ul>
-                          <li><strong>Frame of reference:</strong> Coordinate system used to measure positions and displacements.</li>
-                          <li><strong>Sign convention:</strong> Choose positive direction (right/up); keep consistent. For vertical motion, up = positive, g = -10 m/s² if up is positive.</li>
-                        </ul>
-
-                        <h4 style="margin:10px 0 6px;color:#ffd1ff">Module 2 — Distance, Displacement, Speed & Velocity</h4>
-                        <p><strong>Distance</strong>: Scalar, total path length. <br><strong>Displacement</strong>: Vector, straight-line change in position (Δx or s).</p>
-                        <p><strong>Average speed</strong> = Total distance / Total time.<br><strong>Average velocity</strong> = Displacement / Time. <br><strong>Instantaneous velocity</strong> v = ds/dt.</p>
-
-                        <h4 style="margin:10px 0 6px;color:#ffd1ff">Module 3 — Acceleration</h4>
-                        <p><strong>Acceleration</strong> a = dv/dt. Average acceleration = Δv/Δt. Instantaneous acceleration a = d²s/dt².</p>
-
-                        <h4 style="margin:10px 0 6px;color:#ffd1ff">Module 4 — Equations of Motion (Derivations)</h4>
-                        <ol>
-                          <li><strong>First equation:</strong> v = u + at.</li>
-                          <li><strong>Second equation:</strong> s = ut + ½at².</li>
-                          <li><strong>Third equation:</strong> v² = u² + 2as.</li>
-                        </ol>
-
-                        <h4 style="margin:10px 0 6px;color:#ffd1ff">Module 5 — Graphical Analysis</h4>
-                        <p>Slope of x–t = velocity; slope of v–t = acceleration; area under v–t = displacement.</p>
-
-                        <h4 style="margin:10px 0 6px;color:#ffd1ff">Module 6 & 7 — Relative & Projectile Motion (Summary)</h4>
-                        <p>Relative velocity: v_AB = v_A - v_B. Projectile motion: horizontal x = u cosθ · t; vertical y = u sinθ · t - ½ g t²; range, max height, trajectory formulae included in PDF.</p>
-
-                        <p style="margin-top:10px"><em>Reminder: the full, formatted PDF (with derivations and diagrams) will open when you click <strong>Open folder</strong>. Use the Download PDF button to save a local copy.</em></p>
-                      </div>
-                    </div>
-                    <div class="chapter">Laws of Motion</div>
-                    <div class="chapter">Work, Energy & Power</div>
-                    <div class="chapter">Rotational Motion</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Chemistry</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Some Basic Concepts of Chemistry</div>
-                    <div class="chapter">Structure of Atom</div>
-                    <div class="chapter">Classification of Elements</div>
-                    <div class="chapter">Chemical Bonding</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Mathematics</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Sets & Functions</div>
-                    <div class="chapter">Trigonometry</div>
-                    <div class="chapter">Sequences & Series</div>
-                    <div class="chapter">Limits & Derivatives (Intro)</div>
-                  </div>
-                </div>
-              </details>
-            </div>
-
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="cta" data-sample="11">Open sample lesson</button>
-              <a class="cta" href="#contact">Enroll Class 11</a>
-            </div>
-
-          </div>
-        </article>
-
-        <!-- Class 12 card -->
-        <article class="card reveal" data-classes="12">
-          <div class="icon">12</div>
-          <h3>Class 12 — Exam Cracker</h3>
-          <p>Advanced problem sets, timed full-syllabus mocks, score-boosting shortcuts and revision masterclasses for top ranks.</p>
-          <button class="toggle-btn" data-target="d12">Show details</button>
-
-          <div class="details" id="d12">
-            <strong>Subjects & Chapters (Class 12)</strong>
-            <div class="subjects">
-              <details class="subject-details" open>
-                <summary class="subject-toggle"><strong>Physics</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Electrostatics</div>
-                    <div class="chapter">Current Electricity</div>
-                    <div class="chapter">Magnetism & Matter</div>
-                    <div class="chapter">Electromagnetic Induction</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Chemistry</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Organic Chemistry: Some Basic Principles</div>
-                    <div class="chapter">Coordination Compounds</div>
-                    <div class="chapter">Surface Chemistry</div>
-                    <div class="chapter">p-Block Elements</div>
-                  </div>
-                </div>
-              </details>
-
-              <details class="subject-details">
-                <summary class="subject-toggle"><strong>Mathematics</strong></summary>
-                <div class="subject">
-                  <h4>Chapters</h4>
-                  <div class="chapters">
-                    <div class="chapter">Relations & Functions</div>
-                    <div class="chapter">Continuity & Differentiability</div>
-                    <div class="chapter">Integrals</div>
-                    <div class="chapter">Applications of Integrals</div>
-                  </div>
-                </div>
-              </details>
-            </div>
-
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-              <button class="cta" data-sample="12">Open sample lesson</button>
-              <a class="cta" href="#contact">Enroll Class 12</a>
-            </div>
-
-          </div>
-        </article>
-
-        <!-- Support & practice cards -->
-        <article class="card reveal" data-classes="all">
-          <div class="icon">★</div>
-          <h3>Doubt Support & Tests</h3>
-          <p>Daily doubt clearing, 1:1 sessions and weekly timed tests to track progress and fix weak areas quickly.</p>
-          <button class="toggle-btn" data-target="dS">Show details</button>
-          <div class="details" id="dS">
-            <strong>Support</strong>
-            <div class="topics"><div class="chip">Daily doubt sessions</div><div class="chip">1:1 mentoring</div><div class="chip">Recorded solutions</div></div>
-          </div>
-        </article>
-
-        <article class="card reveal" data-classes="all">
-          <div class="icon">✎</div>
-          <h3>Exam-Focused Practice</h3>
-          <p>Past papers, sectional tests, and strategy sessions designed for board and competitive exam performance.</p>
-          <button class="toggle-btn" data-target="dP">Show details</button>
-          <div class="details" id="dP">
-            <strong>What we do</strong>
-            <div class="topics"><div class="chip">Past paper drills</div><div class="chip">Timed mocks</div><div class="chip">Error analysis</div></div>
-          </div>
-        </article>
-
-      </div>
-
-    </section>
-
-    <section style="margin-top:40px;">
-      <h2 class="section-title">Why choose us?</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-        <div class="card reveal" data-classes="all"><div class="icon">👨‍🏫</div><h3>Experienced Faculty</h3><p>Years of classroom experience and proven teaching methods tailored to board and competitive exams.</p></div>
-        <div class="card reveal" data-classes="all"><div class="icon">📝</div><h3>Practice First</h3><p>Timed tests, curated question banks and targetted corrections to raise the score fast.</p></div>
-        <div class="card reveal" data-classes="all"><div class="icon">💡</div><h3>Concept Clarity</h3><p>Visuals, analogies and minimal-jargon explanations so students remember, not rote-learn.</p></div>
-      </div>
-    </section>
-
-    <section id="contact" style="margin:48px 0;">
-      <h2 class="section-title">Contact & Enrollment</h2>
-      <p style="color:var(--muted)">Fill this quick form or message on WhatsApp to enroll — we will respond within a day.</p>
-      <form style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
-        <input placeholder="Name" style="flex:1;min-width:200px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
-        <input placeholder="Phone" style="width:180px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
-        <select style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff">
-          <option value="9">Class 9</option>
-          <option value="10">Class 10</option>
-          <option value="11">Class 11</option>
-          <option value="12">Class 12</option>
-        </select>
-        <button type="button" style="padding:12px 18px;border-radius:10px;background:linear-gradient(90deg,#8a2be2,#b54bdc);border:none;color:#fff;font-weight:700">Send</button>
-      </form>
-    </section>
-
-  </main>
-
-  <!-- Modal for sample lessons -->
-  <div class="modal" id="modal">
-    <div class="panel">
-      <div class="close-x" id="closeModal">✕</div>
-      <h3 id="modalTitle">Sample Lesson</h3>
-      <div id="modalBody">Lesson content will appear here.</div>
+      <div class="hero-visual">📚</div>
     </div>
-  </div>
+  </section>
+
+  <!-- TRUST / AUTHORITY SECTION -->
+  <section class="trust-section">
+    <div class="trust-wrapper">
+      <div class="trust-intro">
+        <h2>Trusted by Thousands of Students</h2>
+        <p>Proven results in academics and competitive exams. Here's what sets us apart.</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-card-number">15+</div>
+          <div class="trust-card-label">Years of Teaching<br>Experience</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-number">10K+</div>
+          <div class="trust-card-label">Students Taught<br>Successfully</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-number">100%</div>
+          <div class="trust-card-label">CBSE Board &<br>Competitive Focus</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-number">400+</div>
+          <div class="trust-card-label">Structured Chapters<br>with PDFs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING SYSTEM SECTION -->
+  <section class="learning-system">
+    <div class="learning-system-wrapper">
+      <h2>How Our Teaching Works</h2>
+      <p class="learning-system-subtitle">A proven 4-step system designed to build lasting mastery</p>
+      <div class="learning-steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Concept Clarity</h3>
+          <p>We start from first principles. Understand the "why" before the "how." No rote learning.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Guided Practice</h3>
+          <p>Work through problems step-by-step with clear methodology. Build problem-solving muscles.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Regular Tests</h3>
+          <p>Weekly assessments track your progress. Timed exams simulate real exam conditions.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Personalized Feedback</h3>
+          <p>Detailed analysis of every test. Know your strengths and exactly what needs work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES SECTION -->
+  <section class="classes-section" id="classes">
+    <div class="section-header">
+      <h2>Choose Your Class</h2>
+      <p>Select your class to access expertly curated courses across Physics, Chemistry & Mathematics</p>
+    </div>
+    <div class="classes-grid">
+      <div class="class-card" onclick="navigateToClass(9)">
+        <div class="class-card-header">
+          <div class="class-number">9</div>
+          <div class="class-title">Foundation Year</div>
+        </div>
+        <div class="class-card-content">
+          <p class="class-tagline">Strong fundamentals in all three subjects with concept mapping and weekly practice.</p>
+          <div class="class-subjects">
+            <span class="subject-tag">Physics</span>
+            <span class="subject-tag">Chemistry</span>
+            <span class="subject-tag">Maths</span>
+          </div>
+          <button class="btn-view">View Syllabus →</button>
+        </div>
+      </div>
+
+      <div class="class-card" onclick="navigateToClass(10)">
+        <div class="class-card-header">
+          <div class="class-number">10</div>
+          <div class="class-title">Board Ready</div>
+        </div>
+        <div class="class-card-content">
+          <p class="class-tagline">Comprehensive board exam preparation with past paper practice and exam strategies.</p>
+          <div class="class-subjects">
+            <span class="subject-tag">Physics</span>
+            <span class="subject-tag">Chemistry</span>
+            <span class="subject-tag">Maths</span>
+          </div>
+          <button class="btn-view">View Syllabus →</button>
+        </div>
+      </div>
+
+      <div class="class-card" onclick="navigateToClass(11)">
+        <div class="class-card-header">
+          <div class="class-number">11</div>
+          <div class="class-title">Concept Builder</div>
+        </div>
+        <div class="class-card-content">
+          <p class="class-tagline">Advanced concepts with calculus, numericals, and NEET/JEE-friendly approaches.</p>
+          <div class="class-subjects">
+            <span class="subject-tag">Physics</span>
+            <span class="subject-tag">Chemistry</span>
+            <span class="subject-tag">Maths</span>
+          </div>
+          <button class="btn-view">View Syllabus →</button>
+        </div>
+      </div>
+
+      <div class="class-card" onclick="navigateToClass(12)">
+        <div class="class-card-header">
+          <div class="class-number">12</div>
+          <div class="class-title">Exam Cracker</div>
+        </div>
+        <div class="class-card-content">
+          <p class="class-tagline">In-depth study with full-syllabus mocks, score-boosting strategies, and revision masters.</p>
+          <div class="class-subjects">
+            <span class="subject-tag">Physics</span>
+            <span class="subject-tag">Chemistry</span>
+            <span class="subject-tag">Maths</span>
+          </div>
+          <button class="btn-view">View Syllabus →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBJECTS SECTION -->
+  <section class="subjects-section" id="subjects">
+    <div class="subjects-wrapper">
+      <div class="section-header">
+        <h2>Our Teaching Approach by Subject</h2>
+        <p>Mastery-focused learning with concept clarity, problem-solving, and exam preparation</p>
+      </div>
+      <div class="subjects-grid">
+        <div class="subject-card">
+          <div class="subject-icon">⚛️</div>
+          <h3>Physics</h3>
+          <p>From motion to magnetism, we make complex physics intuitive. Master concepts, solve numericals, and excel in competitive exams.</p>
+          <ul class="subject-features">
+            <li>Concept clarity with derivations</li>
+            <li>Numerical problem-solving</li>
+            <li>Past year question drills</li>
+            <li>Exam strategy workshops</li>
+          </ul>
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-icon">🧪</div>
+          <h3>Chemistry</h3>
+          <p>Understand the periodic table, bonding, and reactions from first principles. No rote learning, only pure conceptual mastery.</p>
+          <ul class="subject-features">
+            <li>Conceptual theory first</li>
+            <li>Organic & inorganic focus</li>
+            <li>Lab-style practice</li>
+            <li>Memory-free learning</li>
+          </ul>
+        </div>
+
+        <div class="subject-card">
+          <div class="subject-icon">📐</div>
+          <h3>Mathematics</h3>
+          <p>Build rock-solid fundamentals in algebra, geometry, calculus. Think mathematically, not memorize formulae. Problem first.</p>
+          <ul class="subject-features">
+            <li>Logic-driven approaches</li>
+            <li>Step-by-step problem solving</li>
+            <li>Formula derivation focus</li>
+            <li>Competitive exam tricks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="whyus-section" id="why-us">
+    <div class="whyus-wrapper">
+      <div class="section-header">
+        <h2>Why Nirupam's Coaching?</h2>
+        <p>We're different. Here's how.</p>
+      </div>
+      <div class="whyus-grid">
+        <div class="whyus-card">
+          <div class="whyus-icon">👨‍🏫</div>
+          <h3>Teacher-Led, Not Content-Led</h3>
+          <p>Real instruction from experienced teachers, not automated content. Personal touch in every lesson.</p>
+        </div>
+        <div class="whyus-card">
+          <div class="whyus-icon">🎯</div>
+          <h3>No Shortcuts, Strong Fundamentals</h3>
+          <p>We build lasting understanding. Concepts first, then applications. No rote memorization.</p>
+        </div>
+        <div class="whyus-card">
+          <div class="whyus-icon">📊</div>
+          <h3>Regular Tests & Feedback</h3>
+          <p>Weekly tests track progress. Detailed feedback shows what works and what needs attention.</p>
+        </div>
+        <div class="whyus-card">
+          <div class="whyus-icon">👥</div>
+          <h3>Personal Attention</h3>
+          <p>Not just another face in a crowd. Doubt clearing sessions and one-on-one mentoring included.</p>
+        </div>
+        <div class="whyus-card">
+          <div class="whyus-icon">📚</div>
+          <h3>Structured, Chapter-wise Learning</h3>
+          <p>Well-organized course structure. Build foundation from ground up, not random topics.</p>
+        </div>
+        <div class="whyus-card">
+          <div class="whyus-icon">🏆</div>
+          <h3>Board + Competitive Exam Ready</h3>
+          <p>Curriculum designed for both CBSE boards and entrance exams (NEET, JEE, etc.).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section">
+    <div class="testimonials-wrapper">
+      <div class="section-header">
+        <h2>What Students & Parents Say</h2>
+        <p>Real feedback from students who've transformed their scores</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">"Nirupam sir's classes changed how I understand physics. No more memorizing—I actually get the concepts now. My score jumped from 65 to 92!"</div>
+          <div class="testimonial-author">Arjun Kumar</div>
+          <div class="testimonial-role">Class 12, Board Toppers</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">"Chemistry was my worst subject until I joined here. The chapter-wise structured approach made everything clear. Scored 95 in Class 10 boards!"</div>
+          <div class="testimonial-author">Priya Sharma</div>
+          <div class="testimonial-role">Class 10, Board Exam</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">"As a parent, I was looking for quality over quantity. The personal attention and regular feedback made all the difference. Highly recommended!"</div>
+          <div class="testimonial-author">Mrs. Desai</div>
+          <div class="testimonial-role">Parent of Aditya, Class 11</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="final-cta">
+    <div class="final-cta-wrapper">
+      <h2>Ready to Transform Your Learning?</h2>
+      <p>Join 10,000+ students who've mastered PCM with Nirupam's Coaching. Start your free demo session today.</p>
+      <div class="cta-buttons">
+        <button onclick="enrollNow()" class="btn-primary">Join Now</button>
+        <a href="https://wa.me/919876543210" target="_blank" class="btn-dark">💬 Talk on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-wrapper">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Nirupam's Coaching</h4>
+          <p style="color:rgba(255,255,255,0.75);font-size:0.9rem;">Premium PCM coaching for Classes 9–12. Concept-driven learning for boards and competitive exams.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Classes</h4>
+          <a href="#" onclick="navigateToClass(9);return false">Class 9</a>
+          <a href="#" onclick="navigateToClass(10);return false">Class 10</a>
+          <a href="#" onclick="navigateToClass(11);return false">Class 11</a>
+          <a href="#" onclick="navigateToClass(12);return false">Class 12</a>
+        </div>
+        <div class="footer-col">
+          <h4>Subjects</h4>
+          <a href="class9-physics.html">Physics</a>
+          <a href="class9-chemistry.html">Chemistry</a>
+          <a href="class9-mathematics.html">Mathematics</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://wa.me/919876543210">WhatsApp: +91 98765 43210</a>
+          <a href="tel:+919876543210">Call: +91 98765 43210</a>
+          <a href="mailto:info@nirupamscoaching.com">Email: info@nirupamscoaching.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Nirupam's Coaching. All rights reserved. | <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none">Privacy Policy</a> | <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      requestAnimationFrame(()=> document.getElementById('hero').classList.add('visible'));
-
-      const observer = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('active-reveal'); });
-      },{threshold:0.12});
-      document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-      // Filter pills
-      const pills = Array.from(document.querySelectorAll('.pill'));
-      const cards = Array.from(document.querySelectorAll('#cardsGrid .card'));
-      function setFilter(filter){
-        pills.forEach(p=> p.classList.toggle('active', p.dataset.filter===filter));
-        cards.forEach((c)=>{ const classes = c.dataset.classes.split(' '); if(filter==='all' || classes.includes(filter)) c.style.display=''; else c.style.display='none'; });
+    // Navbar scroll shadow
+    const navbar = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
       }
-      pills.forEach(p=> p.addEventListener('click', ()=> setFilter(p.dataset.filter)));
-
-      // Toggle details inside cards
-      document.querySelectorAll('.toggle-btn').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const id = btn.dataset.target; const el = document.getElementById(id);
-          if(!el) return; const open = el.classList.toggle('open'); btn.textContent = open? 'Hide details' : 'Show details';
-        });
-      });
-
-      // Modal sample lesson
-      const modal = document.getElementById('modal'); const modalTitle = document.getElementById('modalTitle'); const modalBody = document.getElementById('modalBody');
-      document.querySelectorAll('[data-sample]').forEach(btn=> btn.addEventListener('click', ()=>{
-        const cls = btn.dataset.sample;
-        modalTitle.textContent = 'Sample lesson — Class ' + cls;
-
-        const lessons = {
-          '9': {topic:'Motion in a Straight Line', bullets:['Displacement, speed, velocity','Uniform & non-uniform motion','Graphs of motion','5 practice problems']},
-          '10':{topic:'Heat & Temperature', bullets:['Zeroth law, temperature scales','Heat transfer modes','Specific heat & calorimetry','NCERT practice + PYQs']},
-          '11':{topic:"Laws of Motion", bullets:['Newton\'s laws','Friction & applications','Tension problems','8 numericals + MCQs']},
-          '12':{topic:'Electrostatics', bullets:['Coulomb\'s law','Electric field & potential','Field lines & Gauss (intro)','Timed practice sheet']}
-        };
-
-        const lesson = lessons[cls] || {topic:'Sample topic', bullets:['Short overview','Examples','Practice']};
-        modalBody.innerHTML = `<strong>Topic:</strong> ${lesson.topic}<br><br><ul>${lesson.bullets.map(b=>'<li>'+b+'</li>').join('')}</ul>`;
-        modal.classList.add('open');
-      }));
-      document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('open'));
-      modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('open'); });
-
-      // PDF folder -> open full-screen interface
-      const openFolderBtn = document.getElementById('openFolderBtn');
-      const pdfModal = document.getElementById('pdfModal');
-      const pdfClose = document.getElementById('pdfClose');
-      const pdfFrame = document.getElementById('pdfFrame');
-      const pdfDownload = document.getElementById('pdfDownload');
-      const pdfOpenNew = document.getElementById('pdfOpenNew');
-      const pdfFallback = document.getElementById('pdfFallback');
-      const pdfDownloadFallback = document.getElementById('pdfDownloadFallback');
-
-      openFolderBtn.addEventListener('click', ()=>{
-        pdfFrame.src = 'kinematics.pdf';
-        pdfModal.classList.add('open');
-        pdfModal.setAttribute('aria-hidden','false');
-        
-        // Handle PDF load error
-        pdfFrame.addEventListener('error', ()=>{
-          pdfFallback.style.display = 'flex';
-          pdfFallback.style.flexDirection = 'column';
-          pdfFallback.style.alignItems = 'center';
-          pdfFallback.style.justifyContent = 'center';
-          pdfFrame.style.display = 'none';
-        }, { once: true });
-        
-        // Try to show frame (hide fallback if successful)
-        pdfFrame.onload = ()=>{ pdfFallback.style.display = 'none'; pdfFrame.style.display = 'block'; };
-      });
-      
-      pdfClose.addEventListener('click', ()=>{ 
-        pdfModal.classList.remove('open'); 
-        pdfModal.setAttribute('aria-hidden','true'); 
-        pdfFrame.src = '';
-        pdfFrame.style.display = 'block';
-        pdfFallback.style.display = 'none';
-      });
-      
-      pdfDownload.addEventListener('click', ()=>{ window.open('kinematics.pdf', '_blank'); });
-      pdfOpenNew.addEventListener('click', ()=>{ window.open('kinematics.pdf', '_blank'); });
-      pdfDownloadFallback.addEventListener('click', ()=>{ window.open('kinematics.pdf', '_blank'); });
-
     });
+
+    // Navigation functions
+    function navigateToClass(classNum){window.location.href=`class${classNum}-physics.html`;}
+    function exploreCourses(){document.getElementById('classes').scrollIntoView({behavior:'smooth'});}
+    function bookDemo(){alert('Demo booking coming soon! WhatsApp us in the meantime.');}
+    function enrollNow(){alert('Enrollment form coming soon! WhatsApp us to get started.');}
   </script>
 </body>
 </html>
